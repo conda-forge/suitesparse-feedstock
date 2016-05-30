@@ -289,7 +289,7 @@ CHOLMOD_CONFIG = $(GPU_CONFIG)
 # -DHAVE_TBB        enable the use of Intel's Threading Building Blocks (TBB)
 
 # default, without timing, without TBB:
-SPQR_CONFIG = $(GPU_CONFIG)
+# SPQR_CONFIG = $(GPU_CONFIG)
 # with TBB:
 SPQR_CONFIG = -DHAVE_TBB
 
