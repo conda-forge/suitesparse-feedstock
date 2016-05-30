@@ -1,4 +1,4 @@
-{% set version = "4.4.5" %}
+{% set version = "4.4.6" %}
 
 {% set variant = "openblas" %}
 
@@ -10,7 +10,7 @@ package:
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
   url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz
-  sha256: 83f4b88657c7dc57681633e8ca6835ddb12c146bc51af77b6494972ed1ea8bc9
+  sha256: 7f22509d87ada8506580d537efde79cf90e28e228355c18b8bf603aad1a2d7b6
 
 build:
   skip: true  # [win]
