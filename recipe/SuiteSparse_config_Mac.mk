@@ -90,9 +90,9 @@ F77FLAGS = $(FFLAGS) -O
 F77LIB =
 
 # C and Fortran libraries.  Remove -lrt if you don't have it.
-  LIB = -lm -lrt
+# LIB = -lm -lrt
 # Using the following requires CF = ... -DNTIMER on POSIX C systems.
-# LIB = -lm
+  LIB = -lm
 
 # For "make install"
 INSTALL_LIB ?= /usr/local/lib
@@ -119,8 +119,8 @@ INSTALL_INCLUDE ?= /usr/local/include
 # naming the BLAS and LAPACK library (*.a or *.so) files.
 
 # This is probably slow ... it might connect to the Standard Reference BLAS:
-  BLAS = -lblas -lgfortran
-  LAPACK = -llapack
+  BLAS ?= -lblas -lgfortran
+  LAPACK ?= -llapack
 
 # MKL 
 # BLAS = -Wl,--start-group $(MKLROOT)/lib/intel64/libmkl_intel_lp64.a $(MKLROOT)/lib/intel64/libmkl_core.a $(MKLROOT)/lib/intel64/libmkl_intel_thread.a -Wl,--end-group -lpthread -lm
@@ -369,11 +369,11 @@ TBB = -ltbb
 # I've tested them myself on Mac OSX 10.6.1 and 10.6.8 (Snow Leopard),
 # on my MacBook Air, and they work fine.
 
-  F77 = gfortran
-  CF = $(CFLAGS) -O3 -fno-common -fexceptions -DNTIMER
-  BLAS ?= -framework Accelerate
-  LAPACK ?= -framework Accelerate
-  LIB = -lm
+# F77 = gfortran
+# CF = $(CFLAGS) -O3 -fno-common -fexceptions -DNTIMER
+# BLAS = -framework Accelerate
+# LAPACK = -framework Accelerate
+# LIB = -lm
 
 #------------------------------------------------------------------------------
 # Solaris
