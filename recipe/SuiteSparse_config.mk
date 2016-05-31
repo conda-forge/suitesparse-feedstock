@@ -429,7 +429,7 @@ SUITESPARSE_VERSION = 4.5.3
 # This assumes that LIBRARY and VERSION have already been defined by the
 # Makefile that includes this file.
 
-SO_OPTS = $(LDFLAGS)
+SO_OPTS = $(LDFLAGS) $(TBB)
 
 ifeq ($(UNAME),Windows)
     # Cygwin Make on Windows (untested)
@@ -519,7 +519,8 @@ ifeq (,$(findstring -DNCAMD, $(CHOLMOD_CONFIG)))
                         ifeq ($(UNAME), Darwin)
                             LIB_WITH_PARTITION += $(SUITESPARSE)/lib/libmetis.dylib
                         else
-                            LIB_WITH_PARTITION += -lmetis
+                        	# LIB_WITH_PARTITION += -lmetis
+                        	LIB_WITH_PARTITION += $(SUITESPARSE)/lib/libmetis.so
                         endif
                         I_WITH_PARTITION += -I$(SUITESPARSE)/metis-5.1.0/include
                         CONFIG_PARTITION =
