@@ -63,6 +63,8 @@ SUITESPARSE_VERSION = 4.5.3
 
     OPTIMIZATION ?= -O3
 
+    CFLAGS += -I$(INCLUDE_PATH) -L$(LIBRARY_PATH)
+
     #---------------------------------------------------------------------------
     # statement coverage for */Tcov
     #---------------------------------------------------------------------------
@@ -194,6 +196,7 @@ SUITESPARSE_VERSION = 4.5.3
 
     # CUDA is detected automatically, and used if found.  To disable CUDA,
     # use CUDA=no
+    CUDA=no
 
     ifneq ($(CUDA),no)
         CUDA_PATH = $(shell which nvcc 2>/dev/null | sed "s/\/bin\/nvcc//")
