@@ -519,8 +519,7 @@ ifeq (,$(findstring -DNCAMD, $(CHOLMOD_CONFIG)))
                         ifeq ($(UNAME), Darwin)
                             LIB_WITH_PARTITION += $(SUITESPARSE)/lib/libmetis.dylib
                         else
-                        	# LIB_WITH_PARTITION += -lmetis
-                        	LIB_WITH_PARTITION += $(SUITESPARSE)/lib/libmetis.so
+                        	LIB_WITH_PARTITION += -lmetis
                         endif
                         I_WITH_PARTITION += -I$(SUITESPARSE)/metis-5.1.0/include
                         CONFIG_PARTITION =
