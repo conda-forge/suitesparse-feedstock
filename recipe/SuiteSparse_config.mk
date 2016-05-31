@@ -161,6 +161,7 @@ SUITESPARSE_VERSION = 4.5.3
         else
             # use the OpenBLAS at http://www.openblas.net
             BLAS = -lopenblas
+            LAPACK = -lopenblas
         endif
     endif
 
@@ -303,10 +304,11 @@ SUITESPARSE_VERSION = 4.5.3
     # -DHAVE_TBB        enable the use of Intel's Threading Building Blocks
     # -DGPU_BLAS        enable the use of the CUDA BLAS
 
-    SPQR_CONFIG ?= $(GPU_CONFIG)
+    #SPQR_CONFIG ?= $(GPU_CONFIG)
+    SPQR_CONFIG = -DHAVE_TBB
 
     # to compile with Intel's TBB, use TBB=-ltbb SPQR_CONFIG=-DHAVE_TBB
-    TBB ?=
+    TBB ?= -ltbb
 
     # TODO: this *mk file should auto-detect the presence of Intel's TBB,
     # and set the compiler flags accordingly.
@@ -350,8 +352,8 @@ SUITESPARSE_VERSION = 4.5.3
         # command line in the Terminal, before doing 'make':
         # xcode-select --install
         CF += -fno-common
-        BLAS = -framework Accelerate
-        LAPACK = -framework Accelerate
+        # BLAS = -framework Accelerate
+        # LAPACK = -framework Accelerate
         # OpenMP is not yet supported by default in clang
         CFOPENMP =
     endif
@@ -501,7 +503,7 @@ ifeq (,$(findstring -DNCAMD, $(CHOLMOD_CONFIG)))
                     # the compiler.  The latter can be empty if you have METIS
                     # installed in a place where the compiler can find the
                     # metis.h include file by itself without any -I option
-                    # (/usr/local/include/metis.h for example). 
+                    # (/usr/local/include/metis.h for example).
                     LIB_WITH_PARTITION += $(MY_METIS_LIB)
                     ifneq (,$(MY_METIS_INC))
                         I_WITH_PARTITION += -I$(MY_METIS_INC)
