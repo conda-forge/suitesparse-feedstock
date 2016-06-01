@@ -48,3 +48,19 @@ eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.tx
 # make SuiteSparse
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j1
 make install
+
+# manually install the static libraries
+cp ${SRC_DIR}/AMD/Lib/libamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/BTF/Lib/libbtf.a ${PREFIX}/lib
+cp ${SRC_DIR}/CAMD/Lib/libcamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/CCOLAMD/Lib/libccolamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/CHOLAMD/Lib/libcholamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/COLAMD/Lib/libcolamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/CSparse/Lib/libcsparse.a ${PREFIX}/lib
+cp ${SRC_DIR}/CXSparse/Lib/libcxsparse.a ${PREFIX}/lib
+cp ${SRC_DIR}/KLU/Lib/libklu.a ${PREFIX}/lib
+cp ${SRC_DIR}/LDL/Lib/libldl.a ${PREFIX}/lib
+cp ${SRC_DIR}/RBio/Lib/librbio.a ${PREFIX}/lib
+cp ${SRC_DIR}/SPQR/Lib/libspqr.a ${PREFIX}/lib
+cp ${SRC_DIR}/SuiteSparse_config/libsuitesparseconfig.a ${PREFIX}/lib
+cp ${SRC_DIR}/UMFPACK/Lib/libumfpack.a ${PREFIX}/lib
