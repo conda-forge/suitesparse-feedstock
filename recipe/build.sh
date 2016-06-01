@@ -54,7 +54,7 @@ cp ${SRC_DIR}/AMD/Lib/libamd.a ${PREFIX}/lib
 cp ${SRC_DIR}/BTF/Lib/libbtf.a ${PREFIX}/lib
 cp ${SRC_DIR}/CAMD/Lib/libcamd.a ${PREFIX}/lib
 cp ${SRC_DIR}/CCOLAMD/Lib/libccolamd.a ${PREFIX}/lib
-cp ${SRC_DIR}/CHOLAMD/Lib/libcholamd.a ${PREFIX}/lib
+cp ${SRC_DIR}/CHOLMOD/Lib/libcholmod.a ${PREFIX}/lib
 cp ${SRC_DIR}/COLAMD/Lib/libcolamd.a ${PREFIX}/lib
 cp ${SRC_DIR}/CSparse/Lib/libcsparse.a ${PREFIX}/lib
 cp ${SRC_DIR}/CXSparse/Lib/libcxsparse.a ${PREFIX}/lib
