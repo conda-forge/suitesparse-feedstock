@@ -48,8 +48,3 @@ eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.tx
 # make SuiteSparse
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j1
 make install
-
-if [ "$(uname)" == "Darwin" ]; then
-  # change link to METIS for CHOLMOD to reflect install path
-  install_name_tool -change $SRC_DIR/lib/libmetis.dylib @rpath/libmetis.dylib $PREFIX/lib/libcholmod.dylib
-fi
