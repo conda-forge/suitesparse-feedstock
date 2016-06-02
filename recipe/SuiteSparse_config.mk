@@ -99,7 +99,8 @@ SUITESPARSE_VERSION = 4.5.3
 
     # with gcc, enable OpenMP directives via -fopenmp
     # This is not supported on Darwin, so this string is cleared, below.
-    CFOPENMP ?= -fopenmp
+    # CFOPENMP ?= -fopenmp
+    CFOPENMP ?=
 
     #---------------------------------------------------------------------------
     # compiler
