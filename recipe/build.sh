@@ -11,7 +11,6 @@ else
     DYNAMIC_EXT=".so"
 fi
 
-
 export INCLUDE_PATH="${PREFIX}/include"
 export LIBRARY_PATH="${PREFIX}/lib"
 
@@ -26,12 +25,6 @@ cd metis-5.1.0
 make config shared=1 prefix=${PREFIX}
 make
 make install
-
-if [ "$(uname)" == "Darwin" ]
-then
-    # this is copied from the SuiteSparse Makefile
-    install_name_tool -id ${PREFIX}/lib/libmetis.dylib ${PREFIX}/lib/libmetis.dylib
-fi
 
 # also build static version of METIS
 make config prefix=${PREFIX}
