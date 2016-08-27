@@ -14,19 +14,19 @@ source:
 
 build:
   skip: true  # [win]
-  number: 202
+  number: 203
   features:
     - blas_{{ variant }}
 
 requirements:
   build:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - tbb
 
   run:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - tbb
 
 test:
