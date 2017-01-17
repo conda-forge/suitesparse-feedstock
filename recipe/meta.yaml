@@ -28,13 +28,13 @@ requirements:
     - openblas 0.2.19|0.2.19.*
     - tbb
     - cmake
-    - metis ==5.1.0
+    - metis ==5.1.*
 
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - tbb
-    - metis ==5.1.0
+    - metis ==5.1.*
 
 test:
   commands:
@@ -74,3 +74,4 @@ extra:
   recipe-maintainers:
     - grlee77
     - jakirkham
+    - basnijholt
