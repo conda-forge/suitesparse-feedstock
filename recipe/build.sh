@@ -20,18 +20,6 @@ export INSTALL_INCLUDE="${PREFIX}/include"
 export BLAS="-lopenblas"
 export LAPACK="-lopenblas"
 
-# build METIS first, installing into $PREFIX rather than the source DIR
-cd metis-5.1.0
-make config shared=1 prefix=${PREFIX}
-make
-make install
-
-# also build static version of METIS
-make config prefix=${PREFIX}
-make
-make install
-cd ..
-
 # export environment variable so SuiteSparse will use the METIS built above
 export MY_METIS_LIB="-L${PREFIX}/lib -lmetis"
 

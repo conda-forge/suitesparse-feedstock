@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 203
+  number: 204
   features:
     - blas_{{ variant }}
 
@@ -28,11 +28,13 @@ requirements:
     - openblas 0.2.19|0.2.19.*
     - tbb
     - cmake
+    - metis ==5.1.*
 
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - tbb
+    - metis ==5.1.*
 
 test:
   commands:
@@ -45,7 +47,6 @@ test:
     - test -f ${PREFIX}/lib/libcxsparse{{ dyn_ext }}
     - test -f ${PREFIX}/lib/libklu{{ dyn_ext }}
     - test -f ${PREFIX}/lib/libldl{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libmetis{{ dyn_ext }}
     - test -f ${PREFIX}/lib/librbio{{ dyn_ext }}
     - test -f ${PREFIX}/lib/libspqr{{ dyn_ext }}
     - test -f ${PREFIX}/lib/libsuitesparseconfig{{ dyn_ext }}
@@ -59,7 +60,6 @@ test:
     - test -f ${PREFIX}/lib/libcxsparse.a
     - test -f ${PREFIX}/lib/libklu.a
     - test -f ${PREFIX}/lib/libldl.a
-    - test -f ${PREFIX}/lib/libmetis.a
     - test -f ${PREFIX}/lib/librbio.a
     - test -f ${PREFIX}/lib/libspqr.a
     - test -f ${PREFIX}/lib/libsuitesparseconfig.a
@@ -74,3 +74,4 @@ extra:
   recipe-maintainers:
     - grlee77
     - jakirkham
+    - basnijholt
