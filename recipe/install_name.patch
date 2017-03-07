@@ -1,0 +1,232 @@
+From 3b108bb5a103009e1a43b5f3cb7ae293611c3480 Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Mon, 6 Mar 2017 17:40:23 -0800
+Subject: [PATCH] set install_name on installed dylibs
+
+---
+ AMD/Lib/Makefile                    | 1 +
+ BTF/Lib/Makefile                    | 1 +
+ CAMD/Lib/Makefile                   | 1 +
+ CCOLAMD/Lib/Makefile                | 1 +
+ CHOLMOD/Lib/Makefile                | 1 +
+ COLAMD/Lib/Makefile                 | 1 +
+ CXSparse/Lib/Makefile               | 1 +
+ CXSparse_newfiles/Lib/Makefile      | 1 +
+ GPUQREngine/Lib/Makefile            | 1 +
+ KLU/Lib/Makefile                    | 1 +
+ LDL/Lib/Makefile                    | 1 +
+ RBio/Lib/Makefile                   | 1 +
+ SPQR/Lib/Makefile                   | 1 +
+ SuiteSparse_GPURuntime/Lib/Makefile | 1 +
+ SuiteSparse_config/Makefile         | 1 +
+ SuiteSparse_config/xerbla/Makefile  | 1 +
+ UMFPACK/Lib/Makefile                | 1 +
+ 17 files changed, 17 insertions(+)
+
+diff --git a/AMD/Lib/Makefile b/AMD/Lib/Makefile
+index 3b92f6a..fefba1e 100644
+--- a/AMD/Lib/Makefile
++++ b/AMD/Lib/Makefile
+@@ -90,6 +90,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/amd.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Doc/AMD_UserGuide.pdf $(INSTALL_DOC)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/AMD_README.txt
+diff --git a/BTF/Lib/Makefile b/BTF/Lib/Makefile
+index 85b7a26..8f4f4c3 100644
+--- a/BTF/Lib/Makefile
++++ b/BTF/Lib/Makefile
+@@ -75,6 +75,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/btf.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/BTF_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/CAMD/Lib/Makefile b/CAMD/Lib/Makefile
+index b3ae159..c165006 100644
+--- a/CAMD/Lib/Makefile
++++ b/CAMD/Lib/Makefile
+@@ -71,6 +71,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/camd.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Doc/CAMD_UserGuide.pdf $(INSTALL_DOC)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/CAMD_README.txt
+diff --git a/CCOLAMD/Lib/Makefile b/CCOLAMD/Lib/Makefile
+index 52c52eb..cf87433 100644
+--- a/CCOLAMD/Lib/Makefile
++++ b/CCOLAMD/Lib/Makefile
+@@ -58,6 +58,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/ccolamd.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/CCOLAMD_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/CHOLMOD/Lib/Makefile b/CHOLMOD/Lib/Makefile
+index 2ea7ac1..0a50e22 100644
+--- a/CHOLMOD/Lib/Makefile
++++ b/CHOLMOD/Lib/Makefile
+@@ -544,6 +544,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/cholmod*.h $(INSTALL_INCLUDE)
+ 	$(RM) $(INSTALL_INCLUDE)/cholmod_internal.h
+ 	$(CP) ../Doc/CHOLMOD_UserGuide.pdf $(INSTALL_DOC)
+diff --git a/COLAMD/Lib/Makefile b/COLAMD/Lib/Makefile
+index 2d0c5aa..f2c4769 100644
+--- a/COLAMD/Lib/Makefile
++++ b/COLAMD/Lib/Makefile
+@@ -58,6 +58,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/colamd.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/COLAMD_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/CXSparse/Lib/Makefile b/CXSparse/Lib/Makefile
+index 22c9015..389ecc0 100644
+--- a/CXSparse/Lib/Makefile
++++ b/CXSparse/Lib/Makefile
+@@ -122,6 +122,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(CS)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/cs.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/CXSPARSE_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/CXSparse_newfiles/Lib/Makefile b/CXSparse_newfiles/Lib/Makefile
+index 22c9015..389ecc0 100644
+--- a/CXSparse_newfiles/Lib/Makefile
++++ b/CXSparse_newfiles/Lib/Makefile
+@@ -122,6 +122,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(CS)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/cs.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/CXSPARSE_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/GPUQREngine/Lib/Makefile b/GPUQREngine/Lib/Makefile
+index adf4603..c63fa11 100644
+--- a/GPUQREngine/Lib/Makefile
++++ b/GPUQREngine/Lib/Makefile
+@@ -138,6 +138,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJS)
+ 	$(CXX) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/GPUQRENGINE_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+ 	chmod 644 $(INSTALL_DOC)/GPUQRENGINE_README.txt
+diff --git a/KLU/Lib/Makefile b/KLU/Lib/Makefile
+index 2dc62cb..8b03c02 100644
+--- a/KLU/Lib/Makefile
++++ b/KLU/Lib/Makefile
+@@ -272,6 +272,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/klu.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Doc/KLU_UserGuide.pdf $(INSTALL_DOC)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/KLU_README.txt
+diff --git a/LDL/Lib/Makefile b/LDL/Lib/Makefile
+index 604ffa2..91c069a 100644
+--- a/LDL/Lib/Makefile
++++ b/LDL/Lib/Makefile
+@@ -55,6 +55,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/ldl.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Doc/ldl_userguide.pdf $(INSTALL_DOC)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/LDL_README.txt
+diff --git a/RBio/Lib/Makefile b/RBio/Lib/Makefile
+index 056715d..0c12095 100644
+--- a/RBio/Lib/Makefile
++++ b/RBio/Lib/Makefile
+@@ -69,6 +69,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/RBio.h $(INSTALL_INCLUDE)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/RBIO_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/SPQR/Lib/Makefile b/SPQR/Lib/Makefile
+index 9e53c54..fa0929b 100644
+--- a/SPQR/Lib/Makefile
++++ b/SPQR/Lib/Makefile
+@@ -251,6 +251,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CXX) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/SuiteSparseQR.hpp $(INSTALL_INCLUDE)
+ 	$(CP) ../Include/SuiteSparseQR_C.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Include/SuiteSparseQR_definitions.h $(INSTALL_INCLUDE)
+diff --git a/SuiteSparse_GPURuntime/Lib/Makefile b/SuiteSparse_GPURuntime/Lib/Makefile
+index 31f536a..cccc490 100644
+--- a/SuiteSparse_GPURuntime/Lib/Makefile
++++ b/SuiteSparse_GPURuntime/Lib/Makefile
+@@ -79,6 +79,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJS)
+ 	$(CXX) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../README.txt $(INSTALL_DOC)/GPURUNTIME_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+ 	chmod 644 $(INSTALL_DOC)/GPURUNTIME_README.txt
+diff --git a/SuiteSparse_config/Makefile b/SuiteSparse_config/Makefile
+index 3f58815..0693c87 100644
+--- a/SuiteSparse_config/Makefile
++++ b/SuiteSparse_config/Makefile
+@@ -53,6 +53,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) SuiteSparse_config.h $(INSTALL_INCLUDE)
+ 	$(CP) README.txt $(INSTALL_DOC)/SUITESPARSECONFIG_README.txt
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+diff --git a/SuiteSparse_config/xerbla/Makefile b/SuiteSparse_config/xerbla/Makefile
+index db68a2e..10bcdb7 100644
+--- a/SuiteSparse_config/xerbla/Makefile
++++ b/SuiteSparse_config/xerbla/Makefile
+@@ -55,6 +55,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(DEPENDS)
+ 	- $(RM) xerbla.o
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) xerbla.h $(INSTALL_INCLUDE)
+ 	chmod 755 $(INSTALL_LIB)/$(SO_TARGET)
+ 	chmod 644 $(INSTALL_INCLUDE)/xerbla.h
+diff --git a/UMFPACK/Lib/Makefile b/UMFPACK/Lib/Makefile
+index 8e4dbd2..d4d30d8 100644
+--- a/UMFPACK/Lib/Makefile
++++ b/UMFPACK/Lib/Makefile
+@@ -297,6 +297,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+ 	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+ 	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
++	$(SO_INSTALL_NAME) $(INSTALL_LIB)/$(SO_MAIN) $(INSTALL_LIB)/$(SO_TARGET)
+ 	$(CP) ../Include/umfpack*.h $(INSTALL_INCLUDE)
+ 	$(CP) ../Doc/UMFPACK_UserGuide.pdf $(INSTALL_DOC)
+ 	$(CP) ../Doc/UMFPACK_QuickStart.pdf $(INSTALL_DOC)
+-- 
+2.11.1
+
