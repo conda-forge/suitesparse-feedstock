@@ -2,11 +2,6 @@
 
 {% set variant = "openblas" %}
 
-{% set dyn_ext = ".so" %}  # [linux]
-{% set dyn_ext = ".dylib" %}  # [osx]
-{% set dyn_ext = ".dll" %}  # [win]
-
-
 package:
   name: suitesparse
   version: {{ version }}
@@ -38,19 +33,19 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libamd{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libbtf{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libcamd{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libccolamd{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libcholmod{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libcolamd{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libcxsparse{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libklu{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libldl{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/librbio{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libspqr{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libsuitesparseconfig{{ dyn_ext }}
-    - test -f ${PREFIX}/lib/libumfpack{{ dyn_ext }}
+    - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libccolamd${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libamd.a
     - test -f ${PREFIX}/lib/libbtf.a
     - test -f ${PREFIX}/lib/libcamd.a
