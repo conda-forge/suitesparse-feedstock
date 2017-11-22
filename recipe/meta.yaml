@@ -60,6 +60,9 @@ test:
     - test -f ${PREFIX}/lib/libsuitesparseconfig.a
     - test -f ${PREFIX}/lib/libumfpack.a
 
+    - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
+    - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
+
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
   license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
