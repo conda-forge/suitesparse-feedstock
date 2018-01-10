@@ -42,32 +42,32 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libccolamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libamd.a
-    - test -f ${PREFIX}/lib/libbtf.a
-    - test -f ${PREFIX}/lib/libcamd.a
-    - test -f ${PREFIX}/lib/libccolamd.a
-    - test -f ${PREFIX}/lib/libcholmod.a
-    - test -f ${PREFIX}/lib/libcolamd.a
-    - test -f ${PREFIX}/lib/libcxsparse.a
-    - test -f ${PREFIX}/lib/libklu.a
-    - test -f ${PREFIX}/lib/libldl.a
-    - test -f ${PREFIX}/lib/librbio.a
-    - test -f ${PREFIX}/lib/libspqr.a
-    - test -f ${PREFIX}/lib/libsuitesparseconfig.a
-    - test -f ${PREFIX}/lib/libumfpack.a
+    - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libccolamd${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libamd.a  # [not win]
+    - test -f ${PREFIX}/lib/libbtf.a  # [not win]
+    - test -f ${PREFIX}/lib/libcamd.a  # [not win]
+    - test -f ${PREFIX}/lib/libccolamd.a  # [not win]
+    - test -f ${PREFIX}/lib/libcholmod.a  # [not win]
+    - test -f ${PREFIX}/lib/libcolamd.a  # [not win]
+    - test -f ${PREFIX}/lib/libcxsparse.a  # [not win]
+    - test -f ${PREFIX}/lib/libklu.a  # [not win]
+    - test -f ${PREFIX}/lib/libldl.a  # [not win]
+    - test -f ${PREFIX}/lib/librbio.a  # [not win]
+    - test -f ${PREFIX}/lib/libspqr.a  # [not win]
+    - test -f ${PREFIX}/lib/libsuitesparseconfig.a  # [not win]
+    - test -f ${PREFIX}/lib/libumfpack.a  # [not win]
 
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
     - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
