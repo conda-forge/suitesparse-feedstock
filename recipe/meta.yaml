@@ -1,4 +1,5 @@
 {% set version = "4.5.4" %}
+{% set version_win = "1.3.1" %}
 
 {% set variant = "openblas" %}
 
@@ -8,11 +9,13 @@ package:
 
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
-  url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz
-  sha256: 698b5c455645bb1ad29a185f0d52025f3bd7cb7261e182c8878b0eb60567a714
+  url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz  # [not win]
+  sha256: 698b5c455645bb1ad29a185f0d52025f3bd7cb7261e182c8878b0eb60567a714  # [not win]
+  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/v{{ version_win }}.tar.gz  # [not win]
+  sha256: 07a045a2907194f439184e9b0426562ade549e6cc2e7c7e1b59294ed5dff9bd2  # [not win]
 
+  
 build:
-  skip: true  # [win]
   number: 201
   features:
     - blas_{{ variant }}
@@ -24,6 +27,7 @@ requirements:
     - tbb
     - cmake
     - metis 5.1.*
+    - ninja  # [win]
 
   run:
     - blas 1.1 {{ variant }}
