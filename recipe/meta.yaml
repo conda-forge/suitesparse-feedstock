@@ -16,9 +16,12 @@ source:
 
   
 build:
+  skip: true  # [win32]
   number: 201
   features:
     - blas_{{ variant }}
+    - vc14    # [win]
+  msvc_compiler: 14.0
 
 requirements:
   build:
@@ -28,12 +31,14 @@ requirements:
     - cmake
     - metis 5.1.*
     - ninja  # [win]
+    - vc 14  # [win]
 
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20.*
     - tbb
     - metis 5.1.*
+    - vc 14  # [win]
 
 test:
   commands:
