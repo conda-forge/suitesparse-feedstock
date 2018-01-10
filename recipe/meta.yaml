@@ -11,8 +11,8 @@ source:
   fn: SuiteSparse-{{ version }}.tar.gz
   url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz  # [not win]
   sha256: 698b5c455645bb1ad29a185f0d52025f3bd7cb7261e182c8878b0eb60567a714  # [not win]
-  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/v{{ version_win }}.tar.gz  # [not win]
-  sha256: 07a045a2907194f439184e9b0426562ade549e6cc2e7c7e1b59294ed5dff9bd2  # [not win]
+  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/v{{ version_win }}.tar.gz  # [win]
+  sha256: 07a045a2907194f439184e9b0426562ade549e6cc2e7c7e1b59294ed5dff9bd2  # [win]
 
   
 build:
