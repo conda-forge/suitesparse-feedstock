@@ -13,7 +13,8 @@ source:
   sha256: 698b5c455645bb1ad29a185f0d52025f3bd7cb7261e182c8878b0eb60567a714  # [not win]
   url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/{{ version_win }}.tar.gz  # [win]
   sha256: 719065607201f445d490b6bb7bb43df2e8f1affb187551c841d5d2a3dd72f2e7  # [win]
-
+  patches:
+    - libopenblas.patch  # [win]
   
 build:
   skip: true  # [win32]
