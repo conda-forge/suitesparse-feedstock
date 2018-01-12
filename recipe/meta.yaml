@@ -92,7 +92,7 @@ test:
     - if not exist %LIBRARY_PREFIX%\\lib\\libklu.lib exit 1  # [win]
     - if not exist %LIBRARY_PREFIX%\\lib\\libldl.lib exit 1  # [win]
     - if not exist %LIBRARY_PREFIX%\\lib\\libspqr.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libsuitesparseconfig.lib exit 1  # [win]
+    - if not exist %LIBRARY_PREFIX%\\lib\\suitesparseconfig.lib exit 1  # [win]
     - if not exist %LIBRARY_PREFIX%\\lib\\libumfpack.lib exit 1  # [win]
 
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
