@@ -23,7 +23,6 @@ build:
   features:
     - blas_{{ variant }}
     - vc14    # [win]
-  msvc_compiler: 14.0
 
 requirements:
   build:
@@ -71,6 +70,30 @@ test:
     - test -f ${PREFIX}/lib/libsuitesparseconfig.a  # [not win]
     - test -f ${PREFIX}/lib/libumfpack.a  # [not win]
 
+    - if not exist %PREFIX%\\lib\\libamd.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libbtf.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcamd.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libccolamd.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcholmod.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcolamd.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcxsparse.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libklu.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libldl.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libspqr.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libumfpack.dll exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libamd.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libbtf.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcamd.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libccolamd.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcholmod.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcolamd.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libcxsparse.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libklu.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libldl.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libspqr.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libsuitesparseconfig.lib exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\libumfpack.lib exit 1  # [win]
+
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
     - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
 
@@ -84,3 +107,4 @@ extra:
     - grlee77
     - jakirkham
     - basnijholt
+    - xoviat
