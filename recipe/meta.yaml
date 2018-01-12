@@ -23,6 +23,7 @@ build:
   features:
     - blas_{{ variant }}
     - vc14    # [win]
+  msvc_compiler: 14.0
 
 requirements:
   build:
