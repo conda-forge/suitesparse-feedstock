@@ -1,0 +1,22 @@
+From fe7a2b6eb06adf4defaf9a66935f89313a7420cf Mon Sep 17 00:00:00 2001
+From: xoviat <xoviat@users.noreply.github.com>
+Date: Wed, 10 Jan 2018 18:57:56 -0600
+Subject: [PATCH] CMake: be compatible with more LAPACK implementations
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 179b0fb..504e4a0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -198,7 +198,7 @@ if(WITH_CUDA)
+ 	ENDIF(${CUDA_FOUND})
+ endif()
+ 
+-find_package(LAPACK CONFIG)
++find_package(LAPACK)
+ if (LAPACK_FOUND)
+ 	message(STATUS "found lapack and blas config file. Linking targets lapack and blas")
+ 	set(SuiteSparse_LINKER_LAPACK_BLAS_LIBS lapack blas)
