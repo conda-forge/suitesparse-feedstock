@@ -65,6 +65,9 @@ test:
     - if not exist %LIBRARY_PREFIX%\\bin\\{{ each_lib }}.dll exit 1                        # [win]
     - if not exist %LIBRARY_PREFIX%\\lib\\{{ each_lib }}.lib exit 1                        # [win]
     {% endfor %}
+    
+    - test -f $PREFIX/lib/librbio.a                                                 # [unix]
+    - test -f $PREFIX/lib/librbio${SHLIB_EXT}                                       # [unix]
 
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
     - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
