@@ -46,56 +46,26 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libccolamd${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}  # [not win]
-    - test -f ${PREFIX}/lib/libamd.a  # [not win]
-    - test -f ${PREFIX}/lib/libbtf.a  # [not win]
-    - test -f ${PREFIX}/lib/libcamd.a  # [not win]
-    - test -f ${PREFIX}/lib/libccolamd.a  # [not win]
-    - test -f ${PREFIX}/lib/libcholmod.a  # [not win]
-    - test -f ${PREFIX}/lib/libcolamd.a  # [not win]
-    - test -f ${PREFIX}/lib/libcxsparse.a  # [not win]
-    - test -f ${PREFIX}/lib/libklu.a  # [not win]
-    - test -f ${PREFIX}/lib/libldl.a  # [not win]
-    - test -f ${PREFIX}/lib/librbio.a  # [not win]
-    - test -f ${PREFIX}/lib/libspqr.a  # [not win]
-    - test -f ${PREFIX}/lib/libsuitesparseconfig.a  # [not win]
-    - test -f ${PREFIX}/lib/libumfpack.a  # [not win]
-
-    - if not exist %LIBRARY_PREFIX%\\bin\\libamd.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libbtf.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libcamd.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libccolamd.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libcholmod.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libcolamd.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libcxsparse.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libklu.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libldl.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libspqr.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\bin\\libumfpack.dll exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libamd.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libbtf.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libcamd.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libccolamd.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libcholmod.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libcolamd.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libcxsparse.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libklu.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libldl.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libspqr.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\suitesparseconfig.lib exit 1  # [win]
-    - if not exist %LIBRARY_PREFIX%\\lib\\libumfpack.lib exit 1  # [win]
+    {% set suitesparse_libs = [
+        "libamd",
+        "libbtf",
+        "libcamd",
+        "libccolamd",
+        "libcholmod",
+        "libcolamd",
+        "libcxsparse",
+        "libklu",
+        "libldl",
+        "librbio",
+        "libspqr",
+        "libumfpack"
+    ] %}
+    {% for each_lib in suitesparse_libs %}
+    - test -f $PREFIX/lib/{{ each_lib }}.a                                                 # [unix]
+    - test -f $PREFIX/lib/{{ each_lib }}${SHLIB_EXT}                                       # [unix]
+    - if not exist %LIBRARY_PREFIX%\\bin\\{{ each_lib }}.dll exit 1                        # [win]
+    - if not exist %LIBRARY_PREFIX%\\lib\\{{ each_lib }}.lib exit 1                        # [win]
+    {% endfor %}
 
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
     - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
