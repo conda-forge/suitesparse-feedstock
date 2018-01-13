@@ -56,7 +56,6 @@ test:
         "libcxsparse",
         "libklu",
         "libldl",
-        "librbio",
         "libspqr",
         "libumfpack"
     ] %}
