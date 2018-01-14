@@ -16,7 +16,7 @@ source:
     - gh_54.patch  # [win]
 
 build:
-  skip: true  # [win32]
+  skip: true  # [win32 or unix]
   number: 201
   features:
     - blas_{{ variant }}
