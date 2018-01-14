@@ -1,19 +1,15 @@
 {% set version = "4.5.4" %}
-{% set version_win = "4.5.1" %}
-{% set commit_win = "a0e1db7f2de7bdc456648d8d0816f5273afaf3e7" %}
+{% set commit = "a0e1db7f2de7bdc456648d8d0816f5273afaf3e7" %}
 
 {% set variant = "openblas" %}
 
 package:
   name: suitesparse
-  version: {{ version }}  # [not win]
-  version: {{ version_win }}  # [win]
+  version: {{ version }}
 
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
-  url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz  # [not win]
-  sha256: 698b5c455645bb1ad29a185f0d52025f3bd7cb7261e182c8878b0eb60567a714  # [not win]
-  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/{{ commit_win }}.tar.gz  # [win]
+  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/{{ commit }}.tar.gz  # [win]
   sha256: 719065607201f445d490b6bb7bb43df2e8f1affb187551c841d5d2a3dd72f2e7  # [win]
   patches:
     - gh_53.patch  # [win]
@@ -60,14 +56,9 @@ test:
         "libumfpack"
     ] %}
     {% for each_lib in suitesparse_libs %}
-    - test -f $PREFIX/lib/{{ each_lib }}.a                                                 # [unix]
-    - test -f $PREFIX/lib/{{ each_lib }}${SHLIB_EXT}                                       # [unix]
     - if not exist %LIBRARY_PREFIX%\\bin\\{{ each_lib }}.dll exit 1                        # [win]
     - if not exist %LIBRARY_PREFIX%\\lib\\{{ each_lib }}.lib exit 1                        # [win]
     {% endfor %}
-    
-    - test -f $PREFIX/lib/librbio.a                                                 # [unix]
-    - test -f $PREFIX/lib/librbio${SHLIB_EXT}                                       # [unix]
 
     - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
     - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
