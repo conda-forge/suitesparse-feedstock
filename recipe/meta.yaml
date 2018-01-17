@@ -1,4 +1,4 @@
-{% set version = "4.5.4" %}
+{% set version = "4.5.1" %}
 {% set commit = "a0e1db7f2de7bdc456648d8d0816f5273afaf3e7" %}
 
 {% set variant = "openblas" %}
