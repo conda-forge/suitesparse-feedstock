@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [win32 or unix]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
     - vc14    # [win]
