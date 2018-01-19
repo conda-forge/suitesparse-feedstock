@@ -14,10 +14,11 @@ source:
   patches:
     - gh_53.patch  # [win]
     - gh_54.patch  # [win]
+    - gh_56.patch  # [win]
 
 build:
   skip: true  # [win32 or unix]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
     - vc14    # [win]
@@ -43,17 +44,17 @@ requirements:
 test:
   commands:
     {% set suitesparse_libs = [
-        "libamd",
-        "libbtf",
-        "libcamd",
-        "libccolamd",
-        "libcholmod",
-        "libcolamd",
-        "libcxsparse",
-        "libklu",
-        "libldl",
-        "libspqr",
-        "libumfpack"
+        "amd",
+        "btf",
+        "camd",
+        "ccolamd",
+        "cholmod",
+        "colamd",
+        "cxsparse",
+        "klu",
+        "ldl",
+        "spqr",
+        "umfpack"
     ] %}
     {% for each_lib in suitesparse_libs %}
     - if not exist %LIBRARY_PREFIX%\\bin\\{{ each_lib }}.dll exit 1                        # [win]
