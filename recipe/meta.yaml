@@ -1,5 +1,5 @@
-{% set version = "4.5.1" %}
-{% set commit = "a0e1db7f2de7bdc456648d8d0816f5273afaf3e7" %}
+{% set version = "5.1.2" %}
+{% set commit = "9fff863f2a60fc18869c330dcdf5945e2f8930df" %}
 
 {% set variant = "openblas" %}
 
@@ -10,10 +10,8 @@ package:
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
   url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/{{ commit }}.tar.gz  # [win]
-  sha256: 719065607201f445d490b6bb7bb43df2e8f1affb187551c841d5d2a3dd72f2e7  # [win]
+  sha256: ff150a85b26e9c6a87a56770d5e26b08fd1208b35da8c28d37a436142a65e2b7  # [win]
   patches:
-    - gh_53.patch  # [win]
-    - gh_54.patch  # [win]
     - gh_56.patch  # [win]
 
 build:
