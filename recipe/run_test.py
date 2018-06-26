@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 from subprocess import check_output
 
@@ -10,8 +11,8 @@ def check_install_name(name):
     otool = check_output(["otool", "-L", path]).decode("utf8")
     self_line = otool.splitlines()[1]
     install_name = self_line.strip().split()[0]
-    expected = "@rpath/" + libname
-    assert install_name == expected, "{} != {}".format(install_name, expected)
+    pat = "@rpath/lib{}\.\d+\.dylib".format(name)
+    assert re.match(pat, install_name), "{} != {}".format(install_name, pat)
 
 
 if sys.platform == "darwin":
