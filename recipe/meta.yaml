@@ -18,6 +18,8 @@ build:
   number: 201
   features:
     - blas_{{ variant }}
+  run_exports:
+    - {{ pin_subpackage("suitesparse") }}
 
 requirements:
   build:
@@ -63,9 +65,6 @@ test:
     - test -f ${PREFIX}/lib/libspqr.a
     - test -f ${PREFIX}/lib/libsuitesparseconfig.a
     - test -f ${PREFIX}/lib/libumfpack.a
-
-    - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
-    - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
 
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
