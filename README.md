@@ -14,14 +14,16 @@ Summary: A suite of sparse matrix algorithms
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/suitesparse-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/suitesparse-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/suitesparse-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/suitesparse-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/suitesparse-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/suitesparse-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/suitesparse-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/suitesparse-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/suitesparse/badges/version.svg)](https://anaconda.org/conda-forge/suitesparse)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/suitesparse/badges/downloads.svg)](https://anaconda.org/conda-forge/suitesparse)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-suitesparse-green.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) |
 
 Installing suitesparse
 ======================
