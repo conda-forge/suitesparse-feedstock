@@ -15,7 +15,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
   run_exports:
