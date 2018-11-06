@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 201
+  number: 1201
   features:
     - blas_{{ variant }}
 
