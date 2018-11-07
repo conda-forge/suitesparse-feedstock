@@ -11,6 +11,13 @@ else
     DYNAMIC_EXT=".so"
 fi
 
+# conda compilers strip links that aren't used by default,
+# even if explicitly given.
+# This may result in undefined symbols
+# when libraries are intended to bundle others they may
+# not use themselves (e.g. umfpack bundling cholmod)
+export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
+
 export INCLUDE_PATH="${PREFIX}/include"
 export LIBRARY_PATH="${PREFIX}/lib"
 
