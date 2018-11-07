@@ -18,6 +18,11 @@ fi
 # not use themselves (e.g. umfpack bundling cholmod)
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 
+# add rpath-link on linux
+if [[ "$(uname)" == "Linux" ]]; then
+  export LDFLAGS="${LDFLAGS} -Wl,-rpath-link=${PREFIX}/lib"
+fi
+
 export INCLUDE_PATH="${PREFIX}/include"
 export LIBRARY_PATH="${PREFIX}/lib"
 
