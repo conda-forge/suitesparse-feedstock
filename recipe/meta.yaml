@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 201
+  number: 1201
   features:
     - blas_{{ variant }}
 
@@ -25,12 +25,11 @@ requirements:
   host:
     - blas 1.1 {{ variant }}
     - openblas
-    - tbb
+    - tbb-devel
     - metis
   run:
     - blas 1.1 {{ variant }}
     - openblas
-    - tbb
     - metis
 
 test:
