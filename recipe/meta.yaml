@@ -19,25 +19,26 @@ build:
   number: 202
   features:
     - blas_{{ variant }}
-    - vc14    # [win]
-  msvc_compiler: 14.0
+  skip: True  # [win and vc<14]
 
 requirements:
   build:
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
-    - tbb
     - cmake
-    - metis 5.1.*
     - ninja  # [win]
-    - vc 14  # [win]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - blas 1.1 {{ variant }}
+    - openblas
+    - tbb
+    - metis
 
   run:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - tbb
-    - metis 5.1.*
-    - vc 14  # [win]
+    - metis
 
 test:
   commands:
@@ -72,4 +73,3 @@ extra:
     - grlee77
     - jakirkham
     - basnijholt
-    - xoviat
