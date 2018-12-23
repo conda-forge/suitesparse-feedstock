@@ -1,6 +1,8 @@
 About suitesparse
 =================
 
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
 Package license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
@@ -104,3 +106,11 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@basnijholt](https://github.com/basnijholt/)
+* [@grlee77](https://github.com/grlee77/)
+* [@jakirkham](https://github.com/jakirkham/)
+
