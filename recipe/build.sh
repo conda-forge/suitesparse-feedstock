@@ -15,8 +15,9 @@ fi
 # even if explicitly given.
 # This may result in undefined symbols
 # when libraries are intended to bundle others they may
-# not use themselves (e.g. umfpack bundling cholmod)
+# not use themselves (e.g. umfpack bundling cholmod-Wl,-dead_strip_dylibs)
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
+export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
 export INCLUDE_PATH="${PREFIX}/include"
 export LIBRARY_PATH="${PREFIX}/lib"
