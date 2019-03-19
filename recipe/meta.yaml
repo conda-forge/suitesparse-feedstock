@@ -1,6 +1,5 @@
 {% set version = "4.5.6" %}
 
-{% set variant = "openblas" %}
 
 package:
   name: suitesparse
@@ -13,9 +12,8 @@ source:
 
 build:
   skip: true  # [win]
-  number: 1201
+  number: 1202
   features:
-    - blas_{{ variant }}
 
 requirements:
   build:
@@ -23,13 +21,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
   host:
-    - blas 1.1 {{ variant }}
-    - openblas
+    - libblas
+    - libcblas
+    - liblapack
     - tbb-devel
     - metis
   run:
-    - blas 1.1 {{ variant }}
-    - openblas
     - metis
 
 test:
