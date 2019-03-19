@@ -24,8 +24,8 @@ export LIBRARY_PATH="${PREFIX}/lib"
 export INSTALL_LIB="${PREFIX}/lib"
 export INSTALL_INCLUDE="${PREFIX}/include"
 
-export BLAS="-lopenblas"
-export LAPACK="-lopenblas"
+export BLAS="-lblas -llapack"
+export LAPACK="-lblas -llapack"
 
 # export environment variable so SuiteSparse will use the METIS built above
 export MY_METIS_LIB="-L${PREFIX}/lib -lmetis"
