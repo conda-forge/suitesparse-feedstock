@@ -29,7 +29,7 @@ export BLAS="-lblas -llapack"
 export LAPACK="-lblas -llapack"
 
 # export environment variable so SuiteSparse will use the METIS built above
-export MY_METIS_LIB="-L${PREFIX}/lib -lmetis"
+export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
 
 # (optional) write out various make variables for easier build debugging
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
