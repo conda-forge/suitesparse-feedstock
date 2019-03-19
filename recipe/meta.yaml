@@ -23,6 +23,7 @@ requirements:
   host:
     - libblas
     - libcblas
+    - liblapack
     - tbb-devel
     - metis
   run:
