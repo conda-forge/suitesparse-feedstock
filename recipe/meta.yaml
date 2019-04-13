@@ -1,4 +1,4 @@
-{% set version = "4.5.6" %}
+{% set version = "5.0.0" %}
 
 
 package:
@@ -8,11 +8,11 @@ package:
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
   url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz
-  sha256: de5fb496bdc029e55955e05d918a1862a177805fbbd5b957e8b5ce6632f6c77e
+  sha256: 7162e3a9fda729b3d46183307e93326e3cde726c72b1ec79a973060b16e6b3be
 
 build:
   skip: true  # [win]
-  number: 1202
+  number: 0
   features:
 
 requirements:
