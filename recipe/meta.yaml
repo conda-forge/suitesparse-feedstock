@@ -64,6 +64,7 @@ test:
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
   license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
+  license_file: LICENSE.txt
   summary: A suite of sparse matrix algorithms
 
 extra:
