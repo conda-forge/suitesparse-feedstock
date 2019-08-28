@@ -344,7 +344,7 @@ SUITESPARSE_VERSION = 4.5.3
 
     ifeq ($(UNAME),Linux)
         # add the realtime library, librt, and SuiteSparse/lib
-        LDLIBS += -lrt -Wl,-rpath=$(INSTALL_LIB)
+        LDLIBS += -lrt -Wl,-rpath=$(INSTALL_LIB)  -Wl,-rpath-link=$(INSTALL_LIB)
     endif
 
     #---------------------------------------------------------------------------

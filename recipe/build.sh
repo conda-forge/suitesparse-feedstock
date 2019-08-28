@@ -11,17 +11,25 @@ else
     DYNAMIC_EXT=".so"
 fi
 
+# conda compilers strip links that aren't used by default,
+# even if explicitly given.
+# This may result in undefined symbols
+# when libraries are intended to bundle others they may
+# not use themselves (e.g. umfpack bundling cholmod-Wl,-dead_strip_dylibs)
+export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
+export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
+
 export INCLUDE_PATH="${PREFIX}/include"
 export LIBRARY_PATH="${PREFIX}/lib"
 
 export INSTALL_LIB="${PREFIX}/lib"
 export INSTALL_INCLUDE="${PREFIX}/include"
 
-export BLAS="-lopenblas"
-export LAPACK="-lopenblas"
+export BLAS="-lblas -llapack"
+export LAPACK="-lblas -llapack"
 
 # export environment variable so SuiteSparse will use the METIS built above
-export MY_METIS_LIB="-L${PREFIX}/lib -lmetis"
+export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
 
 # (optional) write out various make variables for easier build debugging
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
