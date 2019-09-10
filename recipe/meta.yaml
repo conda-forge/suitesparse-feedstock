@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 1202
+  number: 1203
   features:
 
 requirements:
@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - make
   host:
     - libblas
     - libcblas
@@ -71,3 +72,4 @@ extra:
     - grlee77
     - jakirkham
     - basnijholt
+    - jayfurmanek
