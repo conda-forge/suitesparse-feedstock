@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - make
   host:
     - libblas
     - libcblas
@@ -73,3 +74,4 @@ extra:
     - jakirkham
     - basnijholt
     - minrk
+    - jayfurmanek
