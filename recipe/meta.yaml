@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 1203
+  number: 1204
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
 
