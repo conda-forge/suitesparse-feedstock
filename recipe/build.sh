@@ -17,11 +17,11 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
-export INCLUDE_PATH="${PREFIX}/include"
-export LIBRARY_PATH="${PREFIX}/lib"
-
-export INSTALL_LIB="${PREFIX}/lib"
-export INSTALL_INCLUDE="${PREFIX}/include"
+export INSTALL="${PREFIX}"
+# continue to ignore docs
+export INSTALL_DOC="${SRC_DIR}/doc"
+# make sure CMake install goes in the right place
+export CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
 
 export BLAS="-lblas -llapack"
 export LAPACK="-lblas -llapack"
