@@ -35,7 +35,7 @@ export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
 
 # make SuiteSparse
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j${CPU_COUNT}
+eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make library static
 make install
 
 # manually install the static libraries
