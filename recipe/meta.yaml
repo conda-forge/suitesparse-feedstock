@@ -12,6 +12,7 @@ source:
   patches:
     - no-demo.patch
     - install_name.patch
+    - suitesparse-config.patch
 
 build:
   skip: true  # [win]

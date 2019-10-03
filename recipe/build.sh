@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cp -f "${RECIPE_DIR}/SuiteSparse_config.mk" SuiteSparse_config/SuiteSparse_config.mk
-
 if [ "$(uname)" == "Darwin" ]
 then
     export LIBRARY_SEARCH_VAR=DYLD_FALLBACK_LIBRARY_PATH
@@ -28,6 +26,8 @@ export INSTALL_INCLUDE="${PREFIX}/include"
 export BLAS="-lblas -llapack"
 export LAPACK="-lblas -llapack"
 
+export CUDA="no"
+
 # export environment variable so SuiteSparse will use the METIS built above
 export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
 
@@ -35,7 +35,7 @@ export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
 eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
 
 # make SuiteSparse
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j1
+eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j${CPU_COUNT}
 make install
 
 # manually install the static libraries
