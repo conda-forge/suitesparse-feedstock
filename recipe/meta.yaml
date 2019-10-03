@@ -12,6 +12,7 @@ source:
   patches:
     - install_name.patch
     - suitesparse-config.patch
+    - disable-coverage-clang.patch
 
 build:
   skip: true  # [win]
