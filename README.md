@@ -15,14 +15,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://travis-ci.org/conda-forge/suitesparse-feedstock">
-        <img alt="macOS" src="https://img.shields.io/travis/conda-forge/suitesparse-feedstock/master.svg?label=macOS">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
