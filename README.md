@@ -165,4 +165,6 @@ Feedstock Maintainers
 * [@basnijholt](https://github.com/basnijholt/)
 * [@grlee77](https://github.com/grlee77/)
 * [@jakirkham](https://github.com/jakirkham/)
+* [@jayfurmanek](https://github.com/jayfurmanek/)
+* [@minrk](https://github.com/minrk/)
 
