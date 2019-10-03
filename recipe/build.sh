@@ -2,10 +2,10 @@
 
 if [ "$(uname)" == "Darwin" ]
 then
-    export LIBRARY_SEARCH_VAR=DYLD_FALLBACK_LIBRARY_PATH
+    export DYLD_FALLBACK_LIBRARY_PATH="${PREFIX}/lib"
     DYNAMIC_EXT=".dylib"
 else
-    export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH="${PREFIX}/lib"
     DYNAMIC_EXT=".so"
 fi
 
@@ -30,12 +30,13 @@ export CUDA="no"
 
 # export environment variable so SuiteSparse will use the METIS built above
 export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
+export MY_METIS_INC="-I${PREFIX}/include"
 
 # (optional) write out various make variables for easier build debugging
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
+make config 2>&1 | tee make_config.txt
 
 # make SuiteSparse
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make library static
+make library static VERBOSE=1
 make install
 
 # manually install the static libraries
