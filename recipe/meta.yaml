@@ -1,6 +1,5 @@
 {% set version = "5.4.0" %}
 
-
 package:
   name: suitesparse
   version: {{ version }}
@@ -13,6 +12,7 @@ source:
     - install_name.patch
     - suitesparse-config.patch
     - disable-coverage-clang.patch
+    - skip-graphblas-mongoose.patch
 
 build:
   skip: true  # [win]
@@ -26,7 +26,6 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - m4
   host:
     - libblas
     - libcblas
@@ -38,10 +37,16 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/bin/mongoose
+    # graphblas and mongoose are omitted
+    - test ! -f ${PREFIX}/bin/mongoose
+    - test ! -f ${PREFIX}/include/GraphBLAS.h
+    - test ! -f ${PREFIX}/include/Mongoose.hpp
+    - test ! -f ${PREFIX}/lib/libgraphblas${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/libmongoose${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/libgraphblas.a
+    - test ! -f ${PREFIX}/lib/libmongoose.a
+
     - test -f ${PREFIX}/include/amd.h
-    - test -f ${PREFIX}/include/GraphBLAS.h
-    - test -f ${PREFIX}/include/Mongoose.hpp
     - test -f ${PREFIX}/include/umfpack.h
     - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}
@@ -50,10 +55,8 @@ test:
     - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libgraphblas${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libmongoose${SHLIB_EXT}
     - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}
@@ -66,10 +69,8 @@ test:
     - test -f ${PREFIX}/lib/libcholmod.a
     - test -f ${PREFIX}/lib/libcolamd.a
     - test -f ${PREFIX}/lib/libcxsparse.a
-    - test -f ${PREFIX}/lib/libgraphblas.a
     - test -f ${PREFIX}/lib/libklu.a
     - test -f ${PREFIX}/lib/libldl.a
-    - test -f ${PREFIX}/lib/libmongoose.a
     - test -f ${PREFIX}/lib/librbio.a
     - test -f ${PREFIX}/lib/libspqr.a
     - test -f ${PREFIX}/lib/libsuitesparseconfig.a
