@@ -10,8 +10,6 @@ source:
   patches:
     - install_name.patch
     - suitesparse-config.patch
-    - disable-coverage-clang.patch
-    - skip-graphblas-mongoose.patch
 
 build:
   skip: true  # [win]
