@@ -35,6 +35,10 @@ export MY_METIS_INC="-I${PREFIX}/include"
 # (optional) write out various make variables for easier build debugging
 make config 2>&1 | tee make_config.txt
 
+# skip graphblas, mongoose by giving them a no-op makefile
+cp -v ${RECIPE_DIR}/Makefile.empty GraphBLAS/Makefile
+cp -v ${RECIPE_DIR}/Makefile.empty Mongoose/Makefile
+
 # make SuiteSparse
 make library static VERBOSE=1
 make install

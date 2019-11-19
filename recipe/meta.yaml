@@ -1,18 +1,15 @@
-{% set version = "5.4.0" %}
+{% set version = "5.6.0" %}
 
 package:
   name: suitesparse
   version: {{ version }}
 
 source:
-  fn: SuiteSparse-{{ version }}.tar.gz
-  url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz
-  sha256: 374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1
+  url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ version }}.tar.gz
+  sha256: 76d34d9f6dafc592b69af14f58c1dc59e24853dcd7c2e8f4c98ffa223f6a1adb
   patches:
     - install_name.patch
     - suitesparse-config.patch
-    - disable-coverage-clang.patch
-    - skip-graphblas-mongoose.patch
 
 build:
   skip: true  # [win]
