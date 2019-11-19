@@ -1,13 +1,11 @@
 #!/bin/bash
 
-cp -f "${RECIPE_DIR}/SuiteSparse_config.mk" SuiteSparse_config/SuiteSparse_config.mk
-
 if [ "$(uname)" == "Darwin" ]
 then
-    export LIBRARY_SEARCH_VAR=DYLD_FALLBACK_LIBRARY_PATH
+    export DYLD_FALLBACK_LIBRARY_PATH="${PREFIX}/lib"
     DYNAMIC_EXT=".dylib"
 else
-    export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH="${PREFIX}/lib"
     DYNAMIC_EXT=".so"
 fi
 
@@ -19,23 +17,26 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
-export INCLUDE_PATH="${PREFIX}/include"
-export LIBRARY_PATH="${PREFIX}/lib"
-
-export INSTALL_LIB="${PREFIX}/lib"
-export INSTALL_INCLUDE="${PREFIX}/include"
+export INSTALL="${PREFIX}"
+# continue to ignore docs
+export INSTALL_DOC="${SRC_DIR}/doc"
+# make sure CMake install goes in the right place
+export CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
 
 export BLAS="-lblas -llapack"
 export LAPACK="-lblas -llapack"
 
+export CUDA="no"
+
 # export environment variable so SuiteSparse will use the METIS built above
 export MY_METIS_LIB="-L${PREFIX}/lib -lmetis -Wl,-rpath,$PREFIX/lib"
+export MY_METIS_INC="-I${PREFIX}/include"
 
 # (optional) write out various make variables for easier build debugging
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make config 2>&1 | tee make_config.txt
+make config 2>&1 | tee make_config.txt
 
 # make SuiteSparse
-eval ${LIBRARY_SEARCH_VAR}="${PREFIX}/lib" make -j1
+make library static VERBOSE=1
 make install
 
 # manually install the static libraries

@@ -1,5 +1,4 @@
-{% set version = "4.5.6" %}
-
+{% set version = "5.4.0" %}
 
 package:
   name: suitesparse
@@ -8,13 +7,16 @@ package:
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
   url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ version }}.tar.gz
-  sha256: de5fb496bdc029e55955e05d918a1862a177805fbbd5b957e8b5ce6632f6c77e
+  sha256: 374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1
   patches:
     - install_name.patch
+    - suitesparse-config.patch
+    - disable-coverage-clang.patch
+    - skip-graphblas-mongoose.patch
 
 build:
   skip: true  # [win]
-  number: 1204
+  number: 0
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
 
@@ -35,6 +37,17 @@ requirements:
 
 test:
   commands:
+    # graphblas and mongoose are omitted
+    - test ! -f ${PREFIX}/bin/mongoose
+    - test ! -f ${PREFIX}/include/GraphBLAS.h
+    - test ! -f ${PREFIX}/include/Mongoose.hpp
+    - test ! -f ${PREFIX}/lib/libgraphblas${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/libmongoose${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/libgraphblas.a
+    - test ! -f ${PREFIX}/lib/libmongoose.a
+
+    - test -f ${PREFIX}/include/amd.h
+    - test -f ${PREFIX}/include/umfpack.h
     - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}
@@ -47,6 +60,7 @@ test:
     - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libamd.a
     - test -f ${PREFIX}/lib/libbtf.a
