@@ -1,4 +1,4 @@
-{% set version = "5.6.0" %}
+{% set version = "5.7.0" %}
 
 package:
   name: suitesparse
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ version }}.tar.gz
-  sha256: 76d34d9f6dafc592b69af14f58c1dc59e24853dcd7c2e8f4c98ffa223f6a1adb
+  sha256: c062bcd0811deb153083ecb9d6cfed647ea510d70fb4cad98d5d33b5a2de69fc
   patches:
     - install_name.patch
     - suitesparse-config.patch
