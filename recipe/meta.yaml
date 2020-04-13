@@ -1,4 +1,4 @@
-{% set version = "5.6.0" %}
+{% set version = "5.7.2" %}
 
 package:
   name: suitesparse
@@ -6,10 +6,7 @@ package:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ version }}.tar.gz
-  sha256: 76d34d9f6dafc592b69af14f58c1dc59e24853dcd7c2e8f4c98ffa223f6a1adb
-  patches:
-    - install_name.patch
-    - suitesparse-config.patch
+  sha256: fe3bc7c3bd1efdfa5cffffb5cebf021ff024c83b5daf0ab445429d3d741bd3ad
 
 build:
   skip: true  # [win]
@@ -75,9 +72,10 @@ test:
 
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-  license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
+  license: LGPL-2.1-or-later (AMD, BTF, etc.), BSD-3-clause (UFget), GPL-2.0-or-later (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache-2.0 (Metis)
   license_file: LICENSE.txt
   summary: A suite of sparse matrix algorithms
+  dev_url: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
 extra:
   recipe-maintainers:
