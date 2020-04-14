@@ -1,5 +1,5 @@
-{% set version = "5.1.2" %}
-{% set commit = "9fff863f2a60fc18869c330dcdf5945e2f8930df" %}
+{% set bundle_version = "1.5.0" %}
+{% set version = "5.4.0" %}
 
 {% set variant = "openblas" %}
 
@@ -9,36 +9,30 @@ package:
 
 source:
   fn: SuiteSparse-{{ version }}.tar.gz
-  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/{{ commit }}.tar.gz  # [win]
-  sha256: ff150a85b26e9c6a87a56770d5e26b08fd1208b35da8c28d37a436142a65e2b7  # [win]
+  url: https://github.com/jlblancoc/suitesparse-metis-for-windows/archive/v{{ bundle_version }}.tar.gz  # [win]
+  sha256: 1e1a901e62ac368c8c525bd43cf900e2e1133d2b20a58d5254561bb585af9a9c  # [win]
   patches:
     - gh_56.patch  # [win]
 
 build:
-  skip: true  # [win32 or unix]
-  number: 202
+  number: 0
   features:
     - blas_{{ variant }}
-  skip: True  # [win and vc<14]
+  skip: True  # [win and vc<14 or win32 or unix]
 
 requirements:
   build:
     - cmake
-    - ninja  # [win]
-    - {{ compiler('fortran') }}
+    - ninja
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - blas 1.1 {{ variant }}
     - openblas
-    - tbb
-    - metis
 
   run:
     - blas 1.1 {{ variant }}
     - openblas
-    - tbb
-    - metis
 
 test:
   commands:
@@ -60,9 +54,6 @@ test:
     - if not exist %LIBRARY_PREFIX%\\lib\\{{ each_lib }}.lib exit 1                        # [win]
     {% endfor %}
 
-    - conda inspect linkages -p ${PREFIX} suitesparse  # [not win]
-    - conda inspect objects -p ${PREFIX} suitesparse  # [osx]
-
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
   license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
@@ -73,3 +64,4 @@ extra:
     - grlee77
     - jakirkham
     - basnijholt
+    - seanyen
