@@ -1,8 +1,6 @@
 {% set bundle_version = "1.5.0" %}
 {% set version = "5.4.0" %}
 
-{% set variant = "openblas" %}
-
 package:
   name: suitesparse
   version: {{ version }}
@@ -16,8 +14,6 @@ source:
 
 build:
   number: 0
-  features:
-    - blas_{{ variant }}
   skip: True  # [win and vc<14 or win32 or unix]
 
 requirements:
@@ -27,12 +23,11 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - blas 1.1 {{ variant }}
+    - blas
     - openblas
 
   run:
-    - blas 1.1 {{ variant }}
-    - openblas
+    - blas
 
 test:
   commands:
