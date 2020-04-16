@@ -1,4 +1,6 @@
 
+rd /s /q %LIBRARY_LIB%\cmake\lapack-3.8.0
+
 mkdir build
 cd build
 
