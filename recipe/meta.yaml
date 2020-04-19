@@ -13,8 +13,10 @@ source:
     - gh_56.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14 or win32 or unix]
+  run_exports:
+    - {{ pin_subpackage("suitesparse") }}
 
 requirements:
   build:
