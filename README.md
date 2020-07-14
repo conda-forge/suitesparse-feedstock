@@ -3,9 +3,9 @@ About suitesparse
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: LGPL v2 (AMD, BTF, etc), BSD 3-clause (UFget), GPL v2 (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache 2.0 (Metis)
+Package license: LGPL-2.1-or-later (AMD, BTF, etc.), BSD-3-clause (UFget), GPL-2.0-or-later (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache-2.0 (Metis)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: A suite of sparse matrix algorithms
 
@@ -19,7 +19,7 @@ Current build status
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/suitesparse-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/suitesparse-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
