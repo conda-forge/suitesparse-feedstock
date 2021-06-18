@@ -26,7 +26,7 @@ requirements:
     - liblapack
     - tbb-devel
     - metis
-    - gmp
+    - mpfr
   run:
     - metis
 
