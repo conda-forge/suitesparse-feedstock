@@ -14,8 +14,6 @@ cxx_compiler_version:
 - '9'
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
-gmp:
-- '6'
 libblas:
 - 3.8 *netlib
 libcblas:
@@ -24,15 +22,17 @@ liblapack:
 - 3.8 *netlib
 metis:
 - '5.1'
+mpfr:
+- '4'
 pin_run_as_build:
-  gmp:
-    max_pin: x
   metis:
     max_pin: x.x
+  mpfr:
+    max_pin: x
 target_platform:
 - linux-64
 tbb_devel:
-- '2020'
+- '2021'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
