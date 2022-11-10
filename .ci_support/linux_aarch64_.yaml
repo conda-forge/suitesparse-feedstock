@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -15,24 +15,19 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '9'
+- '10'
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 metis:
 - '5.1'
 mpfr:
 - '4'
-pin_run_as_build:
-  metis:
-    max_pin: x.x
-  mpfr:
-    max_pin: x
 target_platform:
 - linux-aarch64
 tbb_devel:
