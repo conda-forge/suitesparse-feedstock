@@ -3,7 +3,7 @@ About suitesparse
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: LGPL-2.1-or-later (AMD, BTF, etc.), BSD-3-clause (UFget), GPL-2.0-or-later (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache-2.0 (Metis)
+Package license: LGPL-2.1-or-later AND BSD-3-clause AND GPL-2.0-or-later AND Apache-2.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/suitesparse-feedstock/blob/main/LICENSE.txt)
 
@@ -201,6 +201,7 @@ Feedstock Maintainers
 
 * [@basnijholt](https://github.com/basnijholt/)
 * [@grlee77](https://github.com/grlee77/)
+* [@h-vetinari](https://github.com/h-vetinari/)
 * [@jakirkham](https://github.com/jakirkham/)
 * [@jayfurmanek](https://github.com/jayfurmanek/)
 * [@minrk](https://github.com/minrk/)
