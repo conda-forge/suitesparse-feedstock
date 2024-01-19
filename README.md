@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/suitesparse-fee
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: LGPL-2.1-or-later (AMD, BTF, etc.), BSD-3-clause (UFget), GPL-2.0-or-later (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache-2.0 (Metis)
+Package license: LGPL-2.1-or-later AND BSD-3-Clause AND GPL-2.0-or-later AND Apache-2.0
 
 Summary: A suite of sparse matrix algorithms
 
