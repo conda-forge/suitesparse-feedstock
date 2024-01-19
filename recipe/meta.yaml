@@ -10,7 +10,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
 
@@ -73,7 +73,7 @@ test:
 
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-  license: LGPL-2.1-or-later (AMD, BTF, etc.), BSD-3-clause (UFget), GPL-2.0-or-later (UMFPACK, RBIO, SPQR, GPUQRENGINE), Apache-2.0 (Metis)
+  license: LGPL-2.1-or-later AND BSD-3-Clause AND GPL-2.0-or-later AND Apache-2.0
   license_file: LICENSE.txt
   summary: A suite of sparse matrix algorithms
   dev_url: https://github.com/DrTimothyAldenDavis/SuiteSparse
