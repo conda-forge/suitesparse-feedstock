@@ -17,13 +17,14 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
-cd ${SRC_DIR}
+mkdir -p build && cd build 
 
 cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_BUILD_TYPE=Release \
     -DSUITESPARSE_USE_CUDA=OFF \
-    -DSUITESPARSE_INCLUDEDIR_POSTFIX=${PREFIX}/include
+    -DSUITESPARSE_INCLUDEDIR_POSTFIX=${PREFIX}/include \\
+    ..
 
 cmake --build .
 

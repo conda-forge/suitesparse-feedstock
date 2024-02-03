@@ -1,4 +1,4 @@
-{% set version = "7.2.2" %}
+{% set version = "7.6.0" %}
 
 package:
   name: suitesparse
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ version }}.tar.gz
-  sha256: ec0ece3348ce410d938543dc94f63fc7816016610f2d0d5cfc633c8f86597e02
+  sha256: 19cbeb9964ebe439413dd66d82ace1f904adc5f25d8a823c1b48c34bd0d29ea5
 
 build:
   skip: true  # [win]
