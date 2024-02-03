@@ -23,7 +23,7 @@ cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_BUILD_TYPE=Release \
     -DSUITESPARSE_USE_CUDA=OFF \
-    -DSUITESPARSE_INCLUDEDIR_POSTFIX=${PREFIX}/include \\
+    -DSUITESPARSE_INCLUDEDIR_POSTFIX=${PREFIX}/include \
     ..
 
 cmake --build .
