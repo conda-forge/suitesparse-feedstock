@@ -17,6 +17,8 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
+export CFLAGS="${CFLAGS} -DBLAS_UNDERSCORE" CXXFLAGS="${CXXFLAGS} -DBLAS_UNDERSCORE"
+
 mkdir -p build && cd build 
 
 cmake \
