@@ -17,6 +17,8 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
+cd ${SRC_DIR}
+
 cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_BUILD_TYPE=Release \
