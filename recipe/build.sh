@@ -17,14 +17,15 @@ fi
 export LDFLAGS=${LDFLAGS/-Wl,--as-needed/}
 export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs/}
 
+export BLAS="-lblas -llapack"
+export LAPACK="-lblas -llapack"
+
 mkdir -p build && cd build 
 
 cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_BUILD_TYPE=Release \
     -DSUITESPARSE_USE_CUDA=OFF \
-    -DCMAKE_C_FLAGS="/DBLAS_UNDERSCORE" \
-    -DCMAKE_CXX_FLAGS="/DBLAS_UNDERSCORE" \
     ..
 
 cmake --build .
@@ -36,9 +37,6 @@ cmake --install .
 # export INSTALL_DOC="${SRC_DIR}/doc"
 # # make sure CMake install goes in the right place
 # export CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
-
-# export BLAS="-lblas -llapack"
-# export LAPACK="-lblas -llapack"
 
 # export CUDA="no"
 
