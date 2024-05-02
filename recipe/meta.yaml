@@ -1,4 +1,4 @@
-{% set version = "5.10.1" %}
+{% set version = "7.7.0" %}
 
 package:
   name: suitesparse
@@ -6,17 +6,18 @@ package:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ version }}.tar.gz
-  sha256: acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee
+  sha256: 529b067f5d80981f45ddf6766627b8fc5af619822f068f342aab776e683df4f3
 
 build:
   skip: true  # [win]
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - make
