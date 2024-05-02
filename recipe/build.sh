@@ -19,6 +19,8 @@ fi
 # can add lagraph and -DSUITESPARSE_USE_SYSTEM_GRAPHBLAS after packaging 9.1
 cmake -B build \
   -DSUITESPARSE_ENABLE_PROJECTS="suitesparse_config;amd;btf;camd;ccolamd;colamd;cholmod;cxsparse;ldl;klu;umfpack;paru;rbio;spqr;spex" \
+  -DBLA_VENDOR="Generic" \
+  -DBLAS_LIBRARIES="$PREFIX/lib/libblas${SHLIB_EXT};$PREFIX/lib/libcblas${SHLIB_EXT}" \
   -DBUILD_SHARED_LIBS=ON \
   -DBUILD_STATIC_LIBS=OFF \
   ${CMAKE_ARGS}
