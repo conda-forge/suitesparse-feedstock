@@ -19,6 +19,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
     - cmake
     - make
   host:
@@ -28,8 +29,6 @@ requirements:
     - tbb-devel
     - metis
     - mpfr
-  run:
-    - metis
 
 test:
   commands:
@@ -42,35 +41,12 @@ test:
     - test ! -f ${PREFIX}/lib/libgraphblas.a
     - test ! -f ${PREFIX}/lib/libmongoose.a
 
-    - test -f ${PREFIX}/include/amd.h
-    - test -f ${PREFIX}/include/umfpack.h
-    - test -f ${PREFIX}/lib/libamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libbtf${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libccolamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcholmod${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcolamd${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libcxsparse${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libklu${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libldl${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/librbio${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libspqr${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libsuitesparseconfig${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libumfpack${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libamd.a
-    - test -f ${PREFIX}/lib/libbtf.a
-    - test -f ${PREFIX}/lib/libcamd.a
-    - test -f ${PREFIX}/lib/libccolamd.a
-    - test -f ${PREFIX}/lib/libcholmod.a
-    - test -f ${PREFIX}/lib/libcolamd.a
-    - test -f ${PREFIX}/lib/libcxsparse.a
-    - test -f ${PREFIX}/lib/libklu.a
-    - test -f ${PREFIX}/lib/libldl.a
-    - test -f ${PREFIX}/lib/librbio.a
-    - test -f ${PREFIX}/lib/libspqr.a
-    - test -f ${PREFIX}/lib/libsuitesparseconfig.a
-    - test -f ${PREFIX}/lib/libumfpack.a
+    - test -f ${PREFIX}/include/suitesparse/amd.h
+    - test -f ${PREFIX}/include/suitesparse/umfpack.h
+    {% for name in ['amd', 'btf', 'camd', 'ccolamd', 'cholmod', 'colamd', 'cxsparse', 'klu', 'ldl', 'rbio', 'spqr', 'suitesparseconfig', 'umfpack'] %}
+    - test -f ${PREFIX}/lib/lib{{ name }}${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/lib{{ name }}.a
+    {% endfor %}
 
 about:
   home: http://faculty.cse.tamu.edu/davis/suitesparse.html

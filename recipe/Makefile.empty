@@ -1,2 +1,0 @@
-%:
-	@echo "skipping $@ for $(PWD)"
