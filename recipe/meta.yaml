@@ -9,7 +9,6 @@ source:
   sha256: 529b067f5d80981f45ddf6766627b8fc5af619822f068f342aab776e683df4f3
 
 build:
-  skip: true  # [win]
   number: 0
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
@@ -21,7 +20,8 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - cmake
-    - make
+    - make  # [unix]
+    - ninja  # [win]
   host:
     - libblas
     - libcblas
@@ -33,19 +33,19 @@ requirements:
 test:
   commands:
     # graphblas and mongoose are omitted
-    - test ! -f ${PREFIX}/bin/mongoose
-    - test ! -f ${PREFIX}/include/GraphBLAS.h
-    - test ! -f ${PREFIX}/include/Mongoose.hpp
-    - test ! -f ${PREFIX}/lib/libgraphblas${SHLIB_EXT}
-    - test ! -f ${PREFIX}/lib/libmongoose${SHLIB_EXT}
-    - test ! -f ${PREFIX}/lib/libgraphblas.a
-    - test ! -f ${PREFIX}/lib/libmongoose.a
+    - test ! -f ${PREFIX}/bin/mongoose  # [unix]
+    - test ! -f ${PREFIX}/include/GraphBLAS.h  # [unix]
+    - test ! -f ${PREFIX}/include/Mongoose.hpp  # [unix]
+    - test ! -f ${PREFIX}/lib/libgraphblas${SHLIB_EXT}  # [unix]
+    - test ! -f ${PREFIX}/lib/libmongoose${SHLIB_EXT}  # [unix]
+    - test ! -f ${PREFIX}/lib/libgraphblas.a  # [unix]
+    - test ! -f ${PREFIX}/lib/libmongoose.a  # [unix]
 
-    - test -f ${PREFIX}/include/suitesparse/amd.h
-    - test -f ${PREFIX}/include/suitesparse/umfpack.h
+    - test -f ${PREFIX}/include/suitesparse/amd.h  # [unix]
+    - test -f ${PREFIX}/include/suitesparse/umfpack.h  # [unix]
     {% for name in ['amd', 'btf', 'camd', 'ccolamd', 'cholmod', 'colamd', 'cxsparse', 'klu', 'ldl', 'rbio', 'spqr', 'suitesparseconfig', 'umfpack'] %}
-    - test -f ${PREFIX}/lib/lib{{ name }}${SHLIB_EXT}
-    - test ! -f ${PREFIX}/lib/lib{{ name }}.a
+    - test -f ${PREFIX}/lib/lib{{ name }}${SHLIB_EXT}  # [unix]
+    - test ! -f ${PREFIX}/lib/lib{{ name }}.a  # [unix]
     {% endfor %}
 
 about:
