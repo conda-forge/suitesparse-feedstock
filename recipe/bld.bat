@@ -4,6 +4,7 @@ cmake -G "Ninja" -LAH ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DBUILD_SHARED_LIBS=ON ^
     -DBUILD_STATIC_LIBS=OFF ^
+    -DSUITESPARSE_ENABLE_PROJECTS="suitesparse_config;amd;btf;camd;ccolamd;colamd;cholmod;cxsparse;ldl;klu;umfpack;paru;rbio;spqr" ^
     -DSUITESPARSE_DEMOS=OFF ^
     -DBUILD_TESTING=OFF ^
     -DBLA_VENDOR=Generic ^
