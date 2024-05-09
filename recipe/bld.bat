@@ -1,12 +1,12 @@
 setlocal EnableDelayedExpansion
 
 cmake -B build ^
-  -G "NMake Makefiles" ^
+  -G "Ninja" ^
   -DSUITESPARSE_ENABLE_PROJECTS="suitesparse_config;amd;btf;camd;ccolamd;colamd;cholmod;cxsparse;ldl;klu;umfpack;paru;rbio;spqr;spex" ^
+  -DBLA_VENDOR=Generic ^
+  -DBLA_PREFER_PKGCONFIG=ON ^
   -DBUILD_SHARED_LIBS=ON ^
   -DBUILD_STATIC_LIBS=OFF ^
-  -DBLA_VENDOR=Generic ^
-  -DBLAS_LIBRARIES="%LIBRARY_PREFIX%\bin\blas.dll;%LIBRARY_PREFIX%\bin\cblas.dll" \
   -DCMAKE_BUILD_TYPE:STRING=Release ^
   -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
   -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
