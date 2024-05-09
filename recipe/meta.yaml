@@ -29,8 +29,7 @@ requirements:
     - tbb-devel
     - metis
     - gmp  # [not win]
-    - mpir  # [win]
-    - mpfr
+    - mpfr  # [not win]
 
 test:
   commands:
