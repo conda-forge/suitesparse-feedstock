@@ -28,6 +28,8 @@ requirements:
     - liblapack
     - tbb-devel
     - metis
+    - gmp  # [not win]
+    - mpir  # [win]
     - mpfr
 
 test:
