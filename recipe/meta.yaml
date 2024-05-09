@@ -9,8 +9,7 @@ source:
   sha256: 529b067f5d80981f45ddf6766627b8fc5af619822f068f342aab776e683df4f3
 
 build:
-  skip: true  # [win]
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("suitesparse") }}
 
