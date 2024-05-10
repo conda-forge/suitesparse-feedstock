@@ -10,7 +10,7 @@ cmake -B build ^
   -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
   -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
   -DSUITESPARSE_HAS_FORTRAN:BOOL=ON ^
-  -DCMAKE_Fortran_Compiler:BOOL=flang.exe ^
+  -DCMAKE_Fortran_COMPILER=flang.exe ^
   %CMAKE_ARGS%
 if errorlevel 1 exit 1
 
