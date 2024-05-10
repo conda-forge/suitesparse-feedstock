@@ -23,11 +23,10 @@ requirements:
     - make
     - pkg-config
   host:
-    - blas 2 openblas  # [win]
     - openblas  # [win]
-    - libblas
-    - libcblas
-    - liblapack
+    - libblas  # [not win]
+    - libcblas  # [not win]
+    - liblapack  # [not win]
     - tbb-devel
     - metis
     - gmp  # [not win]
