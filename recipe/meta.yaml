@@ -23,6 +23,7 @@ requirements:
     - make
     - pkg-config
   host:
+    - blas 2 openblas  # [win]
     - openblas  # [win]
     - libblas
     - libcblas
