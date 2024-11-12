@@ -23,16 +23,15 @@ requirements:
     - make
     - pkg-config
   host:
+    - llvm-openmp  # [osx]
+    - libgomp  # [linux]
     - libblas
-    - blas-devel
     - libcblas
     - liblapack
     - tbb-devel
     - metis
     - gmp  # [not win]
     - mpfr  # [not win]
-  run:
-    - blas-devel
 
 test:
   commands:
