@@ -19,7 +19,6 @@ fi
 cmake -B build \
   -DSUITESPARSE_ENABLE_PROJECTS="suitesparse_config;amd;btf;camd;ccolamd;colamd;cholmod;cxsparse;ldl;klu;umfpack;paru;rbio;spqr;spex" \
   -DBLA_VENDOR="Generic" \
-  -DBLA_PREFER_PKGCONFIG=ON \
   -DBUILD_SHARED_LIBS=ON \
   -DBUILD_STATIC_LIBS=OFF \
   ${CMAKE_ARGS}
