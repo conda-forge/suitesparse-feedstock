@@ -1,0 +1,651 @@
+context:
+  version: "7.8.3"
+
+recipe:
+  name: suitesparse
+  version: ${{ version }}
+
+source:
+  url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v${{ version }}.tar.gz
+  sha256: ce39b28d4038a09c14f21e02c664401be73c0cb96a9198418d6a98a7db73a259
+
+build:
+  number: 2
+  string: ss${{ version | replace('.', '') }}_h${{ hash }}
+
+outputs:
+  - package:
+      name: libsuitesparseconfig
+    about:
+      license: BSD-3-Clause
+      license_file: LICENSE.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: SuiteSparse_config
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('fortran') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - libblas
+        - libcblas
+        - liblapack
+      ignore_run_exports:
+        from_package:
+          - libblas
+          - libcblas
+          - liblapack
+          - ${{ fortran_compiler }}
+      run_exports:
+        - ${{ pin_subpackage('libsuitesparseconfig') }}
+    tests:
+      - package_contents:
+          lib:
+            - suitesparseconfig
+  - package:
+      name: libamd
+      version: 3.3.3
+    about:
+      license: BSD-3-Clause
+      license_file: AMD/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: AMD
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('fortran') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libamd') }}
+    tests:
+      - package_contents:
+          lib:
+            - amd
+  - package:
+      name: libbtf
+      version: 2.3.2
+    about:
+      license: LGPL-2.1-or-later
+      license_file: BTF/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: BTF
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libbtf') }}
+    tests:
+      - package_contents:
+          lib:
+            - btf
+  - package:
+      name: libcamd
+      version: 3.3.3
+    about:
+      license: BSD-3-Clause
+      license_file: CAMD/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: CAMD
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libcamd') }}
+    tests:
+      - package_contents:
+          lib:
+            - camd
+  - package:
+      name: libccolamd
+      version: 3.3.4
+    about:
+      license: BSD-3-Clause
+      license_file: CCOLAMD/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: CCOLAMD
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libccolamd') }}
+    tests:
+      - package_contents:
+          lib:
+            - ccolamd
+  - package:
+      name: libcholmod
+      version: 5.3.0
+    about:
+      license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
+      license_file:
+        - CHOLMOD/Doc/License.txt
+        - CHOLMOD/SuiteSparse_metis/LICENSE.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: CHOLMOD
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - libblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libamd', exact=True) }}
+        - ${{ pin_subpackage('libcamd', exact=True) }}
+        - ${{ pin_subpackage('libcolamd', exact=True) }}
+        - ${{ pin_subpackage('libccolamd', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libcholmod') }}
+    tests:
+      - package_contents:
+          lib:
+            - cholmod
+  - package:
+      name: libcolamd
+      version: 3.3.4
+    about:
+      license: BSD-3-Clause
+      license_file: COLAMD/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: COLAMD
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libcolamd') }}
+    tests:
+      - package_contents:
+          lib:
+            - colamd
+  - package:
+      name: libcxsparse
+      version: 4.4.1
+    about:
+      license: LGPL-2.1-or-later
+      license_file: CXSparse/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: CXSparse
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - libblas
+        - libcblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libcxsparse') }}
+    tests:
+      - package_contents:
+          lib:
+            - cxsparse
+  - package:
+      name: libklu
+      version: 2.3.5
+    about:
+      license: LGPL-2.1-or-later
+      license_file: KLU/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: KLU
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - libblas
+        - libcblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libamd', exact=True) }}
+        - ${{ pin_subpackage('libbtf', exact=True) }}
+        - ${{ pin_subpackage('libcamd', exact=True) }}
+        - ${{ pin_subpackage('libccolamd', exact=True) }}
+        - ${{ pin_subpackage('libcholmod', exact=True) }}
+        - ${{ pin_subpackage('libcolamd', exact=True) }}
+        - metis
+      run_exports:
+        - ${{ pin_subpackage('libklu') }}
+    tests:
+      - package_contents:
+          lib:
+            - klu
+  - package:
+      name: libldl
+      version: 3.3.2
+    about:
+      license: LGPL-2.1-or-later
+      license_file: LDL/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: LDL
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libldl') }}
+    tests:
+      - package_contents:
+          lib:
+            - ldl
+  - package:
+      name: libparu
+      version: 1.0.0
+    about:
+      license: GPL-3.0-or-later
+      license_file: ParU/LICENSE.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: ParU
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - libblas
+        - libcblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libumfpack', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libparu') }}
+    tests:
+      - package_contents:
+          lib:
+            - paru
+  - package:
+      name: librbio
+      version: 4.3.4
+    about:
+      license: GPL-2.0-or-later
+      license_file: RBio/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: RBio
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('librbio') }}
+    tests:
+      - package_contents:
+          lib:
+            - rbio
+  - package:
+      name: libspex
+      version: 3.2.1
+    about:
+      license_file: SPEX/LICENSE.txt
+      license: LGPL-2.0-or-later
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: SPEX
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - if: osx
+          then:
+            - llvm-openmp
+        - if: linux
+          then:
+            - libgomp
+        - if: not win
+          then:
+            - gmp
+            - mpfr
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libamd', exact=True) }}
+        - ${{ pin_subpackage('libcolamd', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libspex') }}
+    tests:
+      - package_contents:
+          lib:
+            - spex
+  - package:
+      name: libspqr
+      version: 4.3.4
+    about:
+      license: GPL-2.0-or-later
+      license_file: SPQR/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: SPQR
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - libblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libcholmod', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libspqr') }}
+    tests:
+      - package_contents:
+          lib:
+            - spqr
+  - package:
+      name: libumfpack
+      version: 6.3.5
+    about:
+      license: GPL-2.0-or-later
+      license_file: UMFPACK/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: UMFPACK
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - libblas
+        - libcblas
+        - liblapack
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libcamd', exact=True) }}
+        - ${{ pin_subpackage('libccolamd', exact=True) }}
+        - ${{ pin_subpackage('libcolamd', exact=True) }}
+        - ${{ pin_subpackage('libcholmod', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('libumfpack') }}
+    tests:
+      - package_contents:
+          lib:
+            - umfpack
+  - package:
+      name: suitesparse-mongoose
+      version: 3.3.4
+    about:
+      license: GPL-3.0-only
+      license_file: Mongoose/Doc/License.txt
+    build:
+      script:
+        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        env:
+          SUBPKG_DIR: Mongoose
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - if: win
+          then:
+            - ninja
+          else:
+            - make
+        - pkg-config
+      host:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+      run_exports:
+        - ${{ pin_subpackage('suitesparse-mongoose') }}
+    tests:
+      - package_contents:
+          bin:
+            - suitesparse_mongoose
+          lib:
+            - suitesparse_mongoose
+  - package:
+      name: suitesparse
+    requirements:
+      run:
+        - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
+        - ${{ pin_subpackage('libamd', exact=True) }}
+        - ${{ pin_subpackage('libbtf', exact=True) }}
+        - ${{ pin_subpackage('libcamd', exact=True) }}
+        - ${{ pin_subpackage('libccolamd', exact=True) }}
+        - ${{ pin_subpackage('libcolamd', exact=True) }}
+        - ${{ pin_subpackage('libcholmod', exact=True) }}
+        - ${{ pin_subpackage('libcxsparse', exact=True) }}
+        - ${{ pin_subpackage('libldl', exact=True) }}
+        - ${{ pin_subpackage('libklu', exact=True) }}
+        - ${{ pin_subpackage('libumfpack', exact=True) }}
+        - ${{ pin_subpackage('libparu', exact=True) }}
+        - ${{ pin_subpackage('librbio', exact=True) }}
+        - ${{ pin_subpackage('libspex', exact=True) }}
+        - ${{ pin_subpackage('libspqr', exact=True) }}
+      run_exports:
+        # export all subpackages which should give over-linking warnings
+        # most packages shouldn't have a host dependency on suitesparse
+        # now that packages are split
+        - ${{ pin_subpackage('libsuitesparseconfig') }}
+        - ${{ pin_subpackage('libamd') }}
+        - ${{ pin_subpackage('libbtf') }}
+        - ${{ pin_subpackage('libcamd') }}
+        - ${{ pin_subpackage('libccolamd') }}
+        - ${{ pin_subpackage('libcolamd') }}
+        - ${{ pin_subpackage('libcholmod') }}
+        - ${{ pin_subpackage('libcxsparse') }}
+        - ${{ pin_subpackage('libldl') }}
+        - ${{ pin_subpackage('libklu') }}
+        - ${{ pin_subpackage('libumfpack') }}
+        - ${{ pin_subpackage('libparu') }}
+        - ${{ pin_subpackage('librbio') }}
+        - ${{ pin_subpackage('libspex') }}
+        - ${{ pin_subpackage('libspqr') }}
+        - ${{ pin_subpackage('suitesparse') }}
+    tests:
+      - requirements:
+          run:
+            - python *
+        files:
+          recipe:
+            - run_test.py
+        script:
+          - python run_test.py
+
+about:
+  homepage: http://faculty.cse.tamu.edu/davis/suitesparse.html
+  license: LGPL-2.1-or-later AND BSD-3-Clause AND GPL-2.0-or-later AND Apache-2.0
+  license_file: LICENSE.txt
+  summary: A suite of sparse matrix algorithms
+  repository: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+extra:
+  recipe-maintainers:
+    - grlee77
+    - jakirkham
+    - basnijholt
+    - minrk
+    - jayfurmanek

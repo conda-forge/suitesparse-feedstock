@@ -1,17 +1,26 @@
 setlocal EnableDelayedExpansion
 
+if "%FC%"=="" (
+  set HAS_FORTRAN=OFF
+) else (
+  set HAS_FORTRAN=ON
+)
+
+cd "%SUBPKG_DIR%"
+if errorlevel 1 exit 1
+
 cmake -B build ^
   -G "Ninja" ^
-  -DSUITESPARSE_ENABLE_PROJECTS="suitesparse_config;amd;btf;camd;ccolamd;colamd;cholmod;cxsparse;ldl;klu;umfpack;paru;rbio;spqr" ^
   -DBLA_VENDOR=Generic ^
   -DBUILD_SHARED_LIBS=ON ^
   -DBUILD_STATIC_LIBS=OFF ^
   -DCMAKE_BUILD_TYPE:STRING=Release ^
   -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
   -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
-  -DSUITESPARSE_HAS_FORTRAN:BOOL=ON ^
+  -DSUITESPARSE_HAS_FORTRAN:BOOL="%HAS_FORTRAN%" ^
   -DCMAKE_Fortran_COMPILER=flang.exe ^
   %CMAKE_ARGS%
+
 if errorlevel 1 exit 1
 
 cmake --build build --verbose
@@ -19,3 +28,4 @@ if errorlevel 1 exit 1
 
 cmake --install build --verbose
 if errorlevel 1 exit 1
+
