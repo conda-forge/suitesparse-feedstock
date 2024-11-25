@@ -1,7 +1,187 @@
-About suitesparse-feedstock
-===========================
+About libsuitesparseconfig-feedstock
+====================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/suitesparse-feedstock/blob/main/LICENSE.txt)
+
+
+About libsuitesparseconfig
+--------------------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libldl
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libbtf
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libamd
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libccolamd
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libcamd
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About librbio
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About suitesparse-mongoose
+--------------------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-3.0-only
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libcolamd
+---------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libcholmod
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libspqr
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libklu
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libumfpack
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libparu
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-3.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libspex
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libcxsparse
+-----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About suitesparse
+-----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -83,53 +263,69 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libamd-green.svg)](https://anaconda.org/conda-forge/libamd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libamd.svg)](https://anaconda.org/conda-forge/libamd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libamd.svg)](https://anaconda.org/conda-forge/libamd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libamd.svg)](https://anaconda.org/conda-forge/libamd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libbtf-green.svg)](https://anaconda.org/conda-forge/libbtf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libbtf.svg)](https://anaconda.org/conda-forge/libbtf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libbtf.svg)](https://anaconda.org/conda-forge/libbtf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libbtf.svg)](https://anaconda.org/conda-forge/libbtf) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libcamd-green.svg)](https://anaconda.org/conda-forge/libcamd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libcamd.svg)](https://anaconda.org/conda-forge/libcamd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libcamd.svg)](https://anaconda.org/conda-forge/libcamd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libcamd.svg)](https://anaconda.org/conda-forge/libcamd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libccolamd-green.svg)](https://anaconda.org/conda-forge/libccolamd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libccolamd.svg)](https://anaconda.org/conda-forge/libccolamd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libccolamd.svg)](https://anaconda.org/conda-forge/libccolamd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libccolamd.svg)](https://anaconda.org/conda-forge/libccolamd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libcholmod-green.svg)](https://anaconda.org/conda-forge/libcholmod) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libcholmod.svg)](https://anaconda.org/conda-forge/libcholmod) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libcholmod.svg)](https://anaconda.org/conda-forge/libcholmod) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libcholmod.svg)](https://anaconda.org/conda-forge/libcholmod) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libcolamd-green.svg)](https://anaconda.org/conda-forge/libcolamd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libcolamd.svg)](https://anaconda.org/conda-forge/libcolamd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libcolamd.svg)](https://anaconda.org/conda-forge/libcolamd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libcolamd.svg)](https://anaconda.org/conda-forge/libcolamd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libcxsparse-green.svg)](https://anaconda.org/conda-forge/libcxsparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libcxsparse.svg)](https://anaconda.org/conda-forge/libcxsparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libcxsparse.svg)](https://anaconda.org/conda-forge/libcxsparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libcxsparse.svg)](https://anaconda.org/conda-forge/libcxsparse) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libklu-green.svg)](https://anaconda.org/conda-forge/libklu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libklu.svg)](https://anaconda.org/conda-forge/libklu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libklu.svg)](https://anaconda.org/conda-forge/libklu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libklu.svg)](https://anaconda.org/conda-forge/libklu) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libldl-green.svg)](https://anaconda.org/conda-forge/libldl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libldl.svg)](https://anaconda.org/conda-forge/libldl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libldl.svg)](https://anaconda.org/conda-forge/libldl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libldl.svg)](https://anaconda.org/conda-forge/libldl) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libparu-green.svg)](https://anaconda.org/conda-forge/libparu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libparu.svg)](https://anaconda.org/conda-forge/libparu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libparu.svg)](https://anaconda.org/conda-forge/libparu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libparu.svg)](https://anaconda.org/conda-forge/libparu) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-librbio-green.svg)](https://anaconda.org/conda-forge/librbio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/librbio.svg)](https://anaconda.org/conda-forge/librbio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/librbio.svg)](https://anaconda.org/conda-forge/librbio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/librbio.svg)](https://anaconda.org/conda-forge/librbio) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libspex-green.svg)](https://anaconda.org/conda-forge/libspex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libspex.svg)](https://anaconda.org/conda-forge/libspex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libspex.svg)](https://anaconda.org/conda-forge/libspex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libspex.svg)](https://anaconda.org/conda-forge/libspex) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libspqr-green.svg)](https://anaconda.org/conda-forge/libspqr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libspqr.svg)](https://anaconda.org/conda-forge/libspqr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libspqr.svg)](https://anaconda.org/conda-forge/libspqr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libspqr.svg)](https://anaconda.org/conda-forge/libspqr) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libsuitesparseconfig-green.svg)](https://anaconda.org/conda-forge/libsuitesparseconfig) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libsuitesparseconfig.svg)](https://anaconda.org/conda-forge/libsuitesparseconfig) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libsuitesparseconfig.svg)](https://anaconda.org/conda-forge/libsuitesparseconfig) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libsuitesparseconfig.svg)](https://anaconda.org/conda-forge/libsuitesparseconfig) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libumfpack-green.svg)](https://anaconda.org/conda-forge/libumfpack) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libumfpack.svg)](https://anaconda.org/conda-forge/libumfpack) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libumfpack.svg)](https://anaconda.org/conda-forge/libumfpack) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libumfpack.svg)](https://anaconda.org/conda-forge/libumfpack) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-suitesparse-green.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-suitesparse--mongoose-green.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) |
 
-Installing suitesparse
-======================
+Installing libsuitesparseconfig
+===============================
 
-Installing `suitesparse` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libsuitesparseconfig` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `suitesparse` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libamd, libbtf, libcamd, libccolamd, libcholmod, libcolamd, libcxsparse, libklu, libldl, libparu, librbio, libspex, libspqr, libsuitesparseconfig, libumfpack, suitesparse, suitesparse-mongoose` can be installed with `conda`:
 
 ```
-conda install suitesparse
-```
-
-or with `mamba`:
-
-```
-mamba install suitesparse
-```
-
-It is possible to list all of the versions of `suitesparse` available on your platform with `conda`:
-
-```
-conda search suitesparse --channel conda-forge
+conda install libamd libbtf libcamd libccolamd libcholmod libcolamd libcxsparse libklu libldl libparu librbio libspex libspqr libsuitesparseconfig libumfpack suitesparse suitesparse-mongoose
 ```
 
 or with `mamba`:
 
 ```
-mamba search suitesparse --channel conda-forge
+mamba install libamd libbtf libcamd libccolamd libcholmod libcolamd libcxsparse libklu libldl libparu librbio libspex libspqr libsuitesparseconfig libumfpack suitesparse suitesparse-mongoose
+```
+
+It is possible to list all of the versions of `libamd` available on your platform with `conda`:
+
+```
+conda search libamd --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libamd --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search suitesparse --channel conda-forge
+mamba repoquery search libamd --channel conda-forge
 
-# List packages depending on `suitesparse`:
-mamba repoquery whoneeds suitesparse --channel conda-forge
+# List packages depending on `libamd`:
+mamba repoquery whoneeds libamd --channel conda-forge
 
-# List dependencies of `suitesparse`:
-mamba repoquery depends suitesparse --channel conda-forge
+# List dependencies of `libamd`:
+mamba repoquery depends libamd --channel conda-forge
 ```
 
 
@@ -174,17 +370,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating suitesparse-feedstock
-==============================
+Updating libsuitesparseconfig-feedstock
+=======================================
 
-If you would like to improve the suitesparse recipe or build a new
+If you would like to improve the libsuitesparseconfig recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/suitesparse-feedstock are
+Note that all branches in the conda-forge/libsuitesparseconfig-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
