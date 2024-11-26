@@ -1,11 +1,11 @@
 setlocal EnableDelayedExpansion
 
-where %FC%
-if %ERRORLEVEL% eq 0 (
-  echo using fortran %FC%
+where flang.exe
+if not errorlevel 1 (
+  echo using fortran
   set HAS_FORTRAN=ON
 ) else (
-  echo no fortran %FC%
+  echo no fortran
   set HAS_FORTRAN=OFF
 )
 
