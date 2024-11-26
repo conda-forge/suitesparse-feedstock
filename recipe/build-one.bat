@@ -3,10 +3,10 @@ setlocal EnableDelayedExpansion
 where flang.exe
 if not errorlevel 1 (
   echo using fortran
-  set CMAKE_ARGS="!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=ON -DCMAKE_Fortran_COMPILER=flang.exe"
+  set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=ON -DCMAKE_Fortran_COMPILER=flang.exe"
 ) else (
   echo no fortran
-  set CMAKE_ARGS="!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=OFF"
+  set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=OFF"
 )
 
 cd "%SUBPKG_DIR%"
