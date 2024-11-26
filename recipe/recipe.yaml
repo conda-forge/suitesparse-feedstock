@@ -464,10 +464,8 @@ outputs:
         - if: linux
           then:
             - libgomp
-        - if: not win
-          then:
-            - gmp
-            - mpfr
+        - gmp
+        - mpfr
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
         - ${{ pin_subpackage('libamd', exact=True) }}
         - ${{ pin_subpackage('libcolamd', exact=True) }}
