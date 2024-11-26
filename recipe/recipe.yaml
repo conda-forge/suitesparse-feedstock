@@ -283,9 +283,6 @@ outputs:
         - if: linux
           then:
             - libgomp
-        - libblas
-        - libcblas
-        - liblapack
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libcxsparse') }}
@@ -400,8 +397,6 @@ outputs:
           then:
             - libgomp
         - libblas
-        - libcblas
-        - liblapack
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
         - ${{ pin_subpackage('libumfpack', exact=True) }}
       run_exports:
@@ -540,12 +535,8 @@ outputs:
         - pkg-config
       host:
         - libblas
-        - libcblas
-        - liblapack
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
-        - ${{ pin_subpackage('libcamd', exact=True) }}
-        - ${{ pin_subpackage('libccolamd', exact=True) }}
-        - ${{ pin_subpackage('libcolamd', exact=True) }}
+        - ${{ pin_subpackage('libamd', exact=True) }}
         - ${{ pin_subpackage('libcholmod', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libumfpack') }}
