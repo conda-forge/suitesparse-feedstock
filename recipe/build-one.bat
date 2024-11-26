@@ -1,9 +1,12 @@
 setlocal EnableDelayedExpansion
 
-if "%FC%"=="" (
-  set HAS_FORTRAN=OFF
-) else (
+where %FC%
+if %ERRORLEVEL% eq 0 (
+  echo using fortran %FC%
   set HAS_FORTRAN=ON
+) else (
+  echo no fortran %FC%
+  set HAS_FORTRAN=OFF
 )
 
 cd "%SUBPKG_DIR%"
