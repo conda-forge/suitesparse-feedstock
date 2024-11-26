@@ -1,3 +1,7 @@
+azure:
+  settings_osx:
+    variables:
+      EXTRA_CB_OPTIONS: "--experimental"
 build_platform:
   linux_aarch64: linux_64
   osx_arm64: osx_64

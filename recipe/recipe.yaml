@@ -13,29 +13,71 @@ build:
   number: 2
   string: ss${{ version | replace('.', '') }}_h${{ hash }}
 
+cache:
+  build:
+    script:
+      file: ${{ 'build-all.sh' if not win else 'build-all.bat' }}
+  requirements:
+    build:
+      - ${{ compiler('c') }}
+      - ${{ stdlib('c') }}
+      - ${{ compiler('cxx') }}
+      - ${{ compiler('fortran') }}
+      - cmake
+      - pkg-config
+      - {if: win, then: ninja, else: make}
+    host:
+      - if: osx
+        then:
+          - llvm-openmp
+      - if: linux
+        then:
+          - libgomp
+      - libblas
+      - libcblas
+      - liblapack
+      - metis
+      - if: not win
+        then:
+          - gmp
+          - mpfr
+    ignore_run_exports:
+      from_package:
+        - libblas
+        - libcblas
+        - liblapack
+        - libgomp
+        - llvm-openmp
+        - gmp
+        - metis
+        - mpfr
+
 outputs:
+  - package:
+      name: suitesparse-devel
+    build:
+      files:
+        - if: win
+          then:
+            - Library/include/
+            - Library/lib/
+          else:
+            - include/
+            - lib/cmake/
+            - lib/pkgconfig/
   - package:
       name: libsuitesparseconfig
     about:
       license: BSD-3-Clause
       license_file: LICENSE.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: SuiteSparse_config
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('fortran') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/suitesparseconfig.dll
           else:
-            - make
-        - pkg-config
+            - lib/libsuitesparseconfig.*
+    requirements:
       host:
         - if: osx
           then:
@@ -43,17 +85,10 @@ outputs:
         - if: linux
           then:
             - libgomp
-        - libblas
-        - libcblas
-        - liblapack
-      ignore_run_exports:
-        from_package:
-          - libblas
-          - libcblas
-          - liblapack
-          - ${{ fortran_compiler }}
       run_exports:
         - ${{ pin_subpackage('libsuitesparseconfig') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -65,26 +100,19 @@ outputs:
       license: BSD-3-Clause
       license_file: AMD/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: AMD
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('fortran') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/amd.dll
           else:
-            - make
-        - pkg-config
+            - lib/libamd.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libamd') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -96,25 +124,19 @@ outputs:
       license: LGPL-2.1-or-later
       license_file: BTF/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: BTF
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/btf.dll
           else:
-            - make
-        - pkg-config
+            - lib/libbtf.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libbtf') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -126,25 +148,19 @@ outputs:
       license: BSD-3-Clause
       license_file: CAMD/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: CAMD
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/camd.dll
           else:
-            - make
-        - pkg-config
+            - lib/libcamd.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libcamd') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -156,25 +172,19 @@ outputs:
       license: BSD-3-Clause
       license_file: CCOLAMD/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: CCOLAMD
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/ccolamd.dll
           else:
-            - make
-        - pkg-config
+            - lib/libccolamd.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libccolamd') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -188,22 +198,13 @@ outputs:
         - CHOLMOD/Doc/License.txt
         - CHOLMOD/SuiteSparse_metis/LICENSE.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: CHOLMOD
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('cxx') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/cholmod.dll
           else:
-            - make
-        - pkg-config
+            - lib/libcholmod.*
+    requirements:
       host:
         - if: osx
           then:
@@ -220,6 +221,8 @@ outputs:
         - ${{ pin_subpackage('libccolamd', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libcholmod') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -231,25 +234,19 @@ outputs:
       license: BSD-3-Clause
       license_file: COLAMD/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: COLAMD
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/colamd.dll
           else:
-            - make
-        - pkg-config
+            - lib/libcolamd.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libcolamd') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -261,21 +258,13 @@ outputs:
       license: LGPL-2.1-or-later
       license_file: CXSparse/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: CXSparse
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/cxsparse.dll
           else:
-            - make
-        - pkg-config
+            - lib/libcxsparse.*
+    requirements:
       host:
         - if: osx
           then:
@@ -286,6 +275,8 @@ outputs:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libcxsparse') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -297,21 +288,13 @@ outputs:
       license: LGPL-2.1-or-later
       license_file: KLU/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: KLU
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/klu.dll
           else:
-            - make
-        - pkg-config
+            - lib/libklu.*
+    requirements:
       host:
         - if: osx
           then:
@@ -332,6 +315,8 @@ outputs:
         - metis
       run_exports:
         - ${{ pin_subpackage('libklu') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -343,25 +328,19 @@ outputs:
       license: LGPL-2.1-or-later
       license_file: LDL/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: LDL
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/ldl.dll
           else:
-            - make
-        - pkg-config
+            - lib/libldl.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libldl') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -373,22 +352,13 @@ outputs:
       license: GPL-3.0-or-later
       license_file: ParU/LICENSE.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: ParU
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('cxx') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/paru.dll
           else:
-            - make
-        - pkg-config
+            - lib/libparu.*
+    requirements:
       host:
         - if: osx
           then:
@@ -401,6 +371,8 @@ outputs:
         - ${{ pin_subpackage('libumfpack', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libparu') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -412,25 +384,19 @@ outputs:
       license: GPL-2.0-or-later
       license_file: RBio/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: RBio
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/rbio.dll
           else:
-            - make
-        - pkg-config
+            - lib/librbio.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('librbio') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -442,21 +408,13 @@ outputs:
       license_file: SPEX/LICENSE.txt
       license: LGPL-2.0-or-later
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: SPEX
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/spex.dll
           else:
-            - make
-        - pkg-config
+            - lib/libspex.*
+    requirements:
       host:
         - if: osx
           then:
@@ -473,6 +431,8 @@ outputs:
         - ${{ pin_subpackage('libcolamd', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libspex') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -484,22 +444,13 @@ outputs:
       license: GPL-2.0-or-later
       license_file: SPQR/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: SPQR
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('cxx') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/spqr.dll
           else:
-            - make
-        - pkg-config
+            - lib/libspqr.*
+    requirements:
       host:
         - libblas
         - liblapack
@@ -507,6 +458,8 @@ outputs:
         - ${{ pin_subpackage('libcholmod', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libspqr') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -518,21 +471,13 @@ outputs:
       license: GPL-2.0-or-later
       license_file: UMFPACK/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: UMFPACK
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/umfpack.dll
           else:
-            - make
-        - pkg-config
+            - lib/libumfpack.*
+    requirements:
       host:
         - libblas
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -540,6 +485,8 @@ outputs:
         - ${{ pin_subpackage('libcholmod', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('libumfpack') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           lib:
@@ -551,26 +498,20 @@ outputs:
       license: GPL-3.0-only
       license_file: Mongoose/Doc/License.txt
     build:
-      script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
-        env:
-          SUBPKG_DIR: Mongoose
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('cxx') }}
-        - cmake
+      files:
         - if: win
           then:
-            - ninja
+            - Library/bin/suitesparse_mongoose.exe
+            - Library/bin/suitesparse_mongoose.dll
           else:
-            - make
-        - pkg-config
+            - lib/libsuitesparse_mongoose.*
+    requirements:
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
       run_exports:
         - ${{ pin_subpackage('suitesparse-mongoose') }}
+      run_constraints:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
     tests:
       - package_contents:
           bin:
@@ -581,6 +522,7 @@ outputs:
       name: suitesparse
     requirements:
       run:
+        - ${{ pin_subpackage('suitesparse-devel', exact=True) }}
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
         - ${{ pin_subpackage('libamd', exact=True) }}
         - ${{ pin_subpackage('libbtf', exact=True) }}
