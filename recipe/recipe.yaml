@@ -21,7 +21,8 @@ outputs:
       license_file: LICENSE.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        # rattler-build adds `.sh` or `.bat` based on platform
+        file: build-one
         env:
           SUBPKG_DIR: SuiteSparse_config
     requirements:
@@ -62,7 +63,7 @@ outputs:
       license_file: AMD/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: AMD
     requirements:
@@ -89,7 +90,7 @@ outputs:
       license_file: BTF/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: BTF
     requirements:
@@ -115,7 +116,7 @@ outputs:
       license_file: CAMD/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: CAMD
     requirements:
@@ -141,7 +142,7 @@ outputs:
       license_file: CCOLAMD/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: CCOLAMD
     requirements:
@@ -169,7 +170,7 @@ outputs:
         - CHOLMOD/SuiteSparse_metis/LICENSE.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: CHOLMOD
     requirements:
@@ -208,7 +209,7 @@ outputs:
       license_file: COLAMD/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: COLAMD
     requirements:
@@ -234,7 +235,7 @@ outputs:
       license_file: CXSparse/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: CXSparse
     requirements:
@@ -266,7 +267,7 @@ outputs:
       license_file: KLU/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: KLU
     requirements:
@@ -308,7 +309,7 @@ outputs:
       license_file: LDL/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: LDL
     requirements:
@@ -334,7 +335,7 @@ outputs:
       license_file: ParU/LICENSE.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: ParU
     requirements:
@@ -369,7 +370,7 @@ outputs:
       license_file: RBio/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: RBio
     requirements:
@@ -395,7 +396,7 @@ outputs:
       license: LGPL-2.0-or-later
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: SPEX
     requirements:
@@ -431,7 +432,7 @@ outputs:
       license_file: SPQR/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: SPQR
     requirements:
@@ -461,7 +462,7 @@ outputs:
       license_file: UMFPACK/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: UMFPACK
     requirements:
@@ -490,7 +491,7 @@ outputs:
       license_file: Mongoose/Doc/License.txt
     build:
       script:
-        file: ${{ 'build-one.sh' if not win else 'build-one.bat' }}
+        file: build-one
         env:
           SUBPKG_DIR: Mongoose
     requirements:
