@@ -38,6 +38,8 @@ metis:
 - 5.1.0
 mpfr:
 - '4'
+suitesparse:
+- '7'
 target_platform:
 - osx-arm64
 tbb_devel:
