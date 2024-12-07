@@ -24,6 +24,7 @@ fi
 cd "${SUBPKG_DIR}"
 
 cmake -B build \
+  -G Ninja \
   -DBLA_VENDOR="Generic" \
   -DBUILD_SHARED_LIBS=ON \
   -DBUILD_STATIC_LIBS=OFF \

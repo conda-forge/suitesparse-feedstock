@@ -31,7 +31,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -72,7 +72,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -98,7 +98,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -124,7 +124,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -150,7 +150,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -179,7 +179,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -217,7 +217,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -243,7 +243,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -275,7 +275,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -317,7 +317,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -344,7 +344,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -378,7 +378,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
@@ -404,7 +404,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - if: osx
@@ -441,7 +441,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - libblas
@@ -470,7 +470,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - libblas
@@ -500,7 +500,7 @@ outputs:
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
         - cmake
-        - {if: win, then: ninja, else: make}
+        - ninja
         - pkg-config
       host:
         - ${{ pin_subpackage('libsuitesparseconfig', exact=True) }}
