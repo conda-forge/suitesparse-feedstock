@@ -15,19 +15,8 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libcamd
--------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: BSD-3-Clause
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libcxsparse
------------------
+About libldl
+------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -37,19 +26,8 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About librbio
--------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: GPL-2.0-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libccolamd
-----------------
+About libcolamd
+---------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -59,8 +37,8 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libcolamd
----------------
+About libccolamd
+----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -92,30 +70,8 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libcholmod
-----------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libumfpack
-----------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: GPL-2.0-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libldl
-------------
+About libcxsparse
+-----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -125,23 +81,12 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libspqr
+About librbio
 -------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
 Package license: GPL-2.0-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libbtf
-------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: LGPL-2.1-or-later
 
 Summary: A suite of sparse matrix algorithms
 
@@ -158,12 +103,67 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
+About libcamd
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libcholmod
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libspqr
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libumfpack
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
 About libparu
 -------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
 Package license: GPL-3.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libbtf
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
 
 Summary: A suite of sparse matrix algorithms
 
