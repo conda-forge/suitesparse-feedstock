@@ -1,6 +1,6 @@
 setlocal EnableDelayedExpansion
 
-if "%~FC%" != "" (
+if "%FC%" NEQ "" (
   echo using fortran %FC%
   set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=ON"
 ) else (
