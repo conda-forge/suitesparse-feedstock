@@ -1,9 +1,8 @@
 setlocal EnableDelayedExpansion
 
-where flang.exe
-if not errorlevel 1 (
-  echo using fortran
-  set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=ON -DCMAKE_Fortran_COMPILER=flang.exe"
+if "%~FC%" != "" (
+  echo using fortran %FC%
+  set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=ON"
 ) else (
   echo no fortran
   set "CMAKE_ARGS=!CMAKE_ARGS! -DSUITESPARSE_HAS_FORTRAN:BOOL=OFF"
