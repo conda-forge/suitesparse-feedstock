@@ -11,7 +11,9 @@ cxx_compiler:
 fortran_compiler:
 - flang
 fortran_compiler_version:
-- '5'
+- '19'
+gmp:
+- '6'
 libblas:
 - 3.9 *netlib
 libcblas:
@@ -20,7 +22,7 @@ liblapack:
 - 3.9 *netlib
 metis:
 - 5.1.0
+mpfr:
+- '4'
 target_platform:
 - win-64
-tbb_devel:
-- '2021'
