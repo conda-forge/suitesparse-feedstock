@@ -162,7 +162,7 @@ outputs:
             - ccolamd
   - package:
       name: libcholmod
-      version: 5.3.0
+      version: 5.3.1
     about:
       license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
       license_file:
@@ -390,7 +390,7 @@ outputs:
             - rbio
   - package:
       name: libspex
-      version: 3.2.1
+      version: 3.2.3
     about:
       license_file: SPEX/LICENSE.txt
       license: LGPL-2.0-or-later
