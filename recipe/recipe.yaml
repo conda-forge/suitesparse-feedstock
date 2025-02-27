@@ -1,5 +1,5 @@
 context:
-  version: "7.8.3"
+  version: "7.9.0"
 
 recipe:
   name: suitesparse
@@ -7,10 +7,10 @@ recipe:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v${{ version }}.tar.gz
-  sha256: ce39b28d4038a09c14f21e02c664401be73c0cb96a9198418d6a98a7db73a259
+  sha256: bc0b3987a502913959581614ab67098f9f203a45bb424870f2342375f96dbcb7
 
 build:
-  number: 2
+  number: 0
   string: ss${{ version | replace('.', '') }}_h${{ hash }}
 
 outputs:
@@ -162,7 +162,7 @@ outputs:
             - ccolamd
   - package:
       name: libcholmod
-      version: 5.3.0
+      version: 5.3.1
     about:
       license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
       license_file:
@@ -390,7 +390,7 @@ outputs:
             - rbio
   - package:
       name: libspex
-      version: 3.2.1
+      version: 3.2.3
     about:
       license_file: SPEX/LICENSE.txt
       license: LGPL-2.0-or-later
