@@ -1,5 +1,5 @@
 context:
-  version: "7.9.0"
+  version: "7.10.1"
 
 recipe:
   name: suitesparse
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v${{ version }}.tar.gz
-  sha256: bc0b3987a502913959581614ab67098f9f203a45bb424870f2342375f96dbcb7
+  sha256: 9e2974e22dba26a3cffe269731339ae8e01365cfe921b06be6359902bd05862c
 
 build:
   number: 0
