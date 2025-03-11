@@ -1,5 +1,20 @@
 context:
   version: "7.10.1"
+  build: 1
+  # Encode suitesparse version in build number
+  # so later builds are consistently above earlier ones.
+  # Build B for suitesparse x.y.z has build number: XXYYZZBB.
+  # Ensures libamd 1.2 build 0 from ss 7.10 is after
+  #         libamd 1.2 build 2 from ss 7.9
+  version_major: ${{ (version | split("."))[0] | int }}
+  version_minor: ${{ (version | split("."))[1] | int }}
+  version_patch: ${{ (version | split("."))[2] | int }}
+  build_offset: >-
+    ${{
+        (version_major * 1000000)
+      + (version_minor * 10000)
+      + (version_patch * 100)
+    }}
 
 recipe:
   name: suitesparse
@@ -10,8 +25,7 @@ source:
   sha256: 9e2974e22dba26a3cffe269731339ae8e01365cfe921b06be6359902bd05862c
 
 build:
-  number: 0
-  string: ss${{ version | replace('.', '') }}_h${{ hash }}
+  number: ${{ build + (build_offset | int) }}
 
 outputs:
   - package:
