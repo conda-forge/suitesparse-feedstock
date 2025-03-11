@@ -1,3 +1,4 @@
+
 context:
   version: "7.10.1"
 
@@ -10,7 +11,9 @@ source:
   sha256: 9e2974e22dba26a3cffe269731339ae8e01365cfe921b06be6359902bd05862c
 
 build:
-  number: 0
+  number: 1
+  variant:
+    down_prioritize_variant: ${{ 1 if microarch_level == "1" else 0  }}
   string: ss${{ version | replace('.', '') }}_h${{ hash }}
 
 outputs:
@@ -27,6 +30,9 @@ outputs:
           SUBPKG_DIR: SuiteSparse_config
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
@@ -68,6 +74,9 @@ outputs:
           SUBPKG_DIR: AMD
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
@@ -95,6 +104,9 @@ outputs:
           SUBPKG_DIR: BTF
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -121,6 +133,9 @@ outputs:
           SUBPKG_DIR: CAMD
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -147,6 +162,9 @@ outputs:
           SUBPKG_DIR: CCOLAMD
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -175,6 +193,9 @@ outputs:
           SUBPKG_DIR: CHOLMOD
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -214,6 +235,9 @@ outputs:
           SUBPKG_DIR: COLAMD
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -240,6 +264,9 @@ outputs:
           SUBPKG_DIR: CXSparse
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -272,6 +299,9 @@ outputs:
           SUBPKG_DIR: KLU
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -314,6 +344,9 @@ outputs:
           SUBPKG_DIR: LDL
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -340,6 +373,9 @@ outputs:
           SUBPKG_DIR: ParU
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -375,6 +411,9 @@ outputs:
           SUBPKG_DIR: RBio
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -401,6 +440,9 @@ outputs:
           SUBPKG_DIR: SPEX
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -437,6 +479,9 @@ outputs:
           SUBPKG_DIR: SPQR
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -467,6 +512,9 @@ outputs:
           SUBPKG_DIR: UMFPACK
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -496,6 +544,9 @@ outputs:
           SUBPKG_DIR: Mongoose
     requirements:
       build:
+        - if: target_platform == "linux-64"
+          then:
+            - x86_64-microarch-level ==  ${{ microarch_level }} 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
