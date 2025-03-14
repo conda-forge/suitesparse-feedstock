@@ -62,7 +62,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
@@ -106,7 +106,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('fortran') }}
@@ -136,7 +136,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -165,7 +165,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -194,7 +194,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -225,7 +225,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -267,7 +267,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -296,7 +296,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -331,7 +331,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -376,7 +376,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -405,7 +405,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -443,7 +443,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -472,7 +472,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -511,7 +511,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
@@ -544,7 +544,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - cmake
@@ -576,7 +576,7 @@ outputs:
       build:
         - if: target_platform == "linux-64"
           then:
-            - x86_64-microarch-level ==  ${{ microarch_level }} 
+            - x86_64-microarch-level ==${{ microarch_level }}
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
