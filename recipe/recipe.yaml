@@ -1,6 +1,22 @@
 context:
   version: "7.10.1"
   build: 1
+  # consolidate component versions for easier updates
+  amd_version: 3.3.3
+  btf_version: 2.3.2
+  camd_version: 3.3.3
+  ccolamd_version: 3.3.4
+  cholmod_version: 5.3.1
+  colamd_version: 3.3.4
+  cxsparse_version: 4.4.1
+  klu_version: 2.3.5
+  ldl_version: 3.3.2
+  mongoose_version: 3.3.4
+  paru_version: 1.0.0
+  rbio_version: 4.3.4
+  spex_version: 3.2.3
+  spqr_version: 4.3.4
+  umfpack_version: 6.3.5
   # Encode suitesparse version in build number
   # so later builds are consistently above earlier ones.
   # Build B for suitesparse x.y.z has build number: XXYYZZBB.
@@ -71,7 +87,7 @@ outputs:
             - suitesparseconfig
   - package:
       name: libamd
-      version: 3.3.3
+      version: ${{ amd_version }}
     about:
       license: BSD-3-Clause
       license_file: AMD/Doc/License.txt
@@ -98,7 +114,7 @@ outputs:
             - amd
   - package:
       name: libbtf
-      version: 2.3.2
+      version: ${{ btf_version }}
     about:
       license: LGPL-2.1-or-later
       license_file: BTF/Doc/License.txt
@@ -124,7 +140,7 @@ outputs:
             - btf
   - package:
       name: libcamd
-      version: 3.3.3
+      version: ${{ camd_version }}
     about:
       license: BSD-3-Clause
       license_file: CAMD/Doc/License.txt
@@ -150,7 +166,7 @@ outputs:
             - camd
   - package:
       name: libccolamd
-      version: 3.3.4
+      version: ${{ ccolamd_version }}
     about:
       license: BSD-3-Clause
       license_file: CCOLAMD/Doc/License.txt
@@ -176,7 +192,7 @@ outputs:
             - ccolamd
   - package:
       name: libcholmod
-      version: 5.3.1
+      version: ${{ cholmod_version }}
     about:
       license: LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0
       license_file:
@@ -217,7 +233,7 @@ outputs:
             - cholmod
   - package:
       name: libcolamd
-      version: 3.3.4
+      version: ${{ colamd_version }}
     about:
       license: BSD-3-Clause
       license_file: COLAMD/Doc/License.txt
@@ -243,7 +259,7 @@ outputs:
             - colamd
   - package:
       name: libcxsparse
-      version: 4.4.1
+      version: ${{ cxsparse_version }}
     about:
       license: LGPL-2.1-or-later
       license_file: CXSparse/Doc/License.txt
@@ -275,7 +291,7 @@ outputs:
             - cxsparse
   - package:
       name: libklu
-      version: 2.3.5
+      version: ${{ klu_version }}
     about:
       license: LGPL-2.1-or-later
       license_file: KLU/Doc/License.txt
@@ -317,7 +333,7 @@ outputs:
             - klu
   - package:
       name: libldl
-      version: 3.3.2
+      version: ${{ ldl_version }}
     about:
       license: LGPL-2.1-or-later
       license_file: LDL/Doc/License.txt
@@ -343,7 +359,7 @@ outputs:
             - ldl
   - package:
       name: libparu
-      version: 1.0.0
+      version: ${{ paru_version }}
     about:
       license: GPL-3.0-or-later
       license_file: ParU/LICENSE.txt
@@ -378,7 +394,7 @@ outputs:
             - paru
   - package:
       name: librbio
-      version: 4.3.4
+      version: ${{ rbio_version }}
     about:
       license: GPL-2.0-or-later
       license_file: RBio/Doc/License.txt
@@ -404,7 +420,7 @@ outputs:
             - rbio
   - package:
       name: libspex
-      version: 3.2.3
+      version: ${{ spex_version }}
     about:
       license_file: SPEX/LICENSE.txt
       license: LGPL-2.0-or-later
@@ -440,7 +456,7 @@ outputs:
             - spex
   - package:
       name: libspqr
-      version: 4.3.4
+      version: ${{ spqr_version }}
     about:
       license: GPL-2.0-or-later
       license_file: SPQR/Doc/License.txt
@@ -470,7 +486,7 @@ outputs:
             - spqr
   - package:
       name: libumfpack
-      version: 6.3.5
+      version: ${{ umfpack_version }}
     about:
       license: GPL-2.0-or-later
       license_file: UMFPACK/Doc/License.txt
@@ -499,7 +515,7 @@ outputs:
             - umfpack
   - package:
       name: suitesparse-mongoose
-      version: 3.3.4
+      version: ${{ mongoose_version }}
     about:
       license: GPL-3.0-only
       license_file: Mongoose/Doc/License.txt
