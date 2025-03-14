@@ -32,6 +32,8 @@ liblapack:
 - 3.9.* *netlib
 metis:
 - 5.1.0
+microarch_level:
+- '3'
 mpfr:
 - '4'
 target_platform:

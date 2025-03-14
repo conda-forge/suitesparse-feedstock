@@ -209,10 +209,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_microarch_level1</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/suitesparse-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/suitesparse-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_microarch_level1" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_microarch_level3</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1973&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/suitesparse-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_microarch_level3" alt="variant">
                 </a>
               </td>
             </tr><tr>
