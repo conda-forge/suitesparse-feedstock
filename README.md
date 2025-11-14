@@ -1,88 +1,11 @@
-About libsuitesparseconfig-feedstock
-====================================
+About libamd-feedstock
+======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/suitesparse-feedstock/blob/main/LICENSE.txt)
 
 
-About libsuitesparseconfig
---------------------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: BSD-3-Clause
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About suitesparse-mongoose
---------------------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: GPL-3.0-only
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About librbio
--------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: GPL-2.0-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libldl
+About libamd
 ------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: LGPL-2.1-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libcxsparse
------------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: LGPL-2.1-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libcolamd
----------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: BSD-3-Clause
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libccolamd
-----------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: BSD-3-Clause
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libcamd
--------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -103,8 +26,8 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libamd
-------------
+About libcamd
+-------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
@@ -114,12 +37,12 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libspex
--------------
+About libccolamd
+----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: LGPL-2.0-or-later
+Package license: BSD-3-Clause
 
 Summary: A suite of sparse matrix algorithms
 
@@ -136,34 +59,23 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libumfpack
-----------------
+About libcolamd
+---------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: GPL-2.0-or-later
+Package license: BSD-3-Clause
 
 Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
-About libparu
--------------
+About libcxsparse
+-----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
-Package license: GPL-3.0-or-later
-
-Summary: A suite of sparse matrix algorithms
-
-Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
-
-About libspqr
--------------
-
-Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
-
-Package license: GPL-2.0-or-later
+Package license: LGPL-2.1-or-later
 
 Summary: A suite of sparse matrix algorithms
 
@@ -180,12 +92,100 @@ Summary: A suite of sparse matrix algorithms
 
 Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
 
+About libldl
+------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.1-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libparu
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-3.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About librbio
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libspex
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: LGPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libspqr
+-------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libsuitesparseconfig
+--------------------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: BSD-3-Clause
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About libumfpack
+----------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-2.0-or-later
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
 About suitesparse
 -----------------
 
 Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
 
 Package license: LGPL-2.1-or-later AND BSD-3-Clause AND GPL-2.0-or-later AND Apache-2.0
+
+Summary: A suite of sparse matrix algorithms
+
+Development: https://github.com/DrTimothyAldenDavis/SuiteSparse
+
+About suitesparse-mongoose
+--------------------------
+
+Home: http://faculty.cse.tamu.edu/davis/suitesparse.html
+
+Package license: GPL-3.0-only
 
 Summary: A suite of sparse matrix algorithms
 
@@ -288,10 +288,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-suitesparse-green.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/suitesparse.svg)](https://anaconda.org/conda-forge/suitesparse) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-suitesparse--mongoose-green.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/suitesparse-mongoose.svg)](https://anaconda.org/conda-forge/suitesparse-mongoose) |
 
-Installing libsuitesparseconfig
-===============================
+Installing libamd
+=================
 
-Installing `libsuitesparseconfig` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libamd` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -357,12 +357,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -377,19 +377,19 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating libsuitesparseconfig-feedstock
-=======================================
+Updating libamd-feedstock
+=========================
 
-If you would like to improve the libsuitesparseconfig recipe or build a new
+If you would like to improve the libamd recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/libsuitesparseconfig-feedstock are
+Note that all branches in the conda-forge/libamd-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
