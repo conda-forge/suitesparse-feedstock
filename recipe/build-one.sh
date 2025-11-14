@@ -28,6 +28,7 @@ cmake -B build \
   -DBLA_VENDOR="Generic" \
   -DBUILD_SHARED_LIBS=ON \
   -DBUILD_STATIC_LIBS=OFF \
+  -DCHOLMOD_GPL=OFF \
   ${CMAKE_ARGS}
 
 # verify subpackage version, since it doesn't get updated automatically

@@ -1,7 +1,7 @@
 
 context:
   version: "7.10.1"
-  build: 2
+  build: 3
   # consolidate component versions for easier updates
   amd_version: 3.3.3
   btf_version: 2.3.2
@@ -44,7 +44,7 @@ source:
 build:
   number: ${{ build + (build_offset | int) }}
   variant:
-    down_prioritize_variant: ${{ 1 if microarch_level == "1" else 0  }}
+    down_prioritize_variant: ${{ 1 if microarch_level == "1" else 0 }}
 
 outputs:
   - package:
